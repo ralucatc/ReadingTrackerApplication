@@ -1,4 +1,6 @@
 package firstPg.model;
 
-public class Author {
+public class Author extends User{
+
+
 }
