@@ -34,12 +34,17 @@ public class firstPgView extends JFrame{
         contentPane.setBackground(c);
 
         JLabel mainTitle  = new JLabel("Reading Tracker Application ");
-        mainTitle .setBounds(300, 50, 400, 40);
+        mainTitle .setBounds(50, 50, 750, 60);
+        mainTitle.setForeground(Color.BLACK);
+        mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
         contentPane.add(mainTitle);
 
         Color cl = Color.lightGray;
         JLabel lblUsername = new JLabel("Username:");
-        lblUsername.setBounds(110, 150, 120, 25);
+        lblUsername.setBackground(Color.BLACK);
+        lblUsername.setForeground(Color.BLACK);
+        lblUsername.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblUsername.setBounds(90, 150, 120, 25);
         lblUsername.setBackground(cl);
         contentPane.add(lblUsername);
 
@@ -48,7 +53,10 @@ public class firstPgView extends JFrame{
         contentPane.add(txtUsername);
 
         JLabel lblPassword = new JLabel("Password:");
-        lblPassword.setBounds(110, 180, 120, 25);
+        lblPassword.setBackground(Color.BLACK);
+        lblPassword.setForeground(Color.BLACK);
+        lblPassword.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblPassword.setBounds(90, 180, 120, 25);
         lblPassword.setBackground(cl);
         contentPane.add(lblPassword);
 
@@ -57,7 +65,10 @@ public class firstPgView extends JFrame{
         contentPane.add(txtPassword);
 
         JLabel lblRole = new JLabel("Role:");
-        lblRole.setBounds(110, 210, 120, 25);
+        lblRole.setBackground(Color.BLACK);
+        lblRole.setForeground(Color.BLACK);
+        lblRole.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblRole.setBounds(90, 210, 120, 25);
         contentPane.add(lblRole);
 
         String[] roles = { "Reader", "Author"};
@@ -65,9 +76,13 @@ public class firstPgView extends JFrame{
         cmbRole.setBounds(380, 210, 150, 25);
         contentPane.add(cmbRole);
 
-        JLabel ForgotCredentials  = new JLabel("Forgot Credentials?");
-        ForgotCredentials .setBounds(415, 240, 120, 25);
-        ForgotCredentials.setBackground(cl);
+        JButton ForgotCredentials  = new JButton("Forgot Credentials?");
+        ForgotCredentials.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                changePassword a = new changePassword();
+            }
+        });
+        ForgotCredentials .setBounds(380, 240, 150, 25);
         contentPane.add(ForgotCredentials);
 
 
