@@ -1,13 +1,13 @@
-package firstPg.controllers;
+package firstPg.controller;
 
-import firstPg.firstPageView;
+import firstPg.firstPgView;
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
 import firstPg.services.UserService;
 
-public class firstPageController {
-    private firstPageView view;
+public class firstPgControllers {
+    private firstPgView view;
 
-    public firstPageController(firstPageView view) {
+    public firstPgControllers(firstPgView view) {
         this.view = view;
     }
 

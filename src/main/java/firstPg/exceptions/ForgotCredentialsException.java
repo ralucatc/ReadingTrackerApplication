@@ -1,4 +1,4 @@
 package firstPg.exceptions;
 
-public class ForgotCredentialsException {
+public class ForgotCredentialsException extends RuntimeException{
 }
