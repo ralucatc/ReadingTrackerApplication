@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
-import firstPg.exceptions.ForgotCredentialsException;
 import firstPg.exceptions.UsernameAlreadyExistsException;
+import firstPg.exceptions.CouldNotWriteUsersException;
 
 import firstPg.model.User;
 import java.io.IOException;
@@ -35,18 +35,6 @@ public class UserService {
         });
     }
 
-    public static void checkUser(String username, String password) throws IncorrectUsernameOrPasswordException {
-        checkUserOrPasswordDoesNotExist(username);
-        users.add(new User(username, encodePassword(username, password)));
-        persistUsers();
-    }
-
-    private static void checkUserOrPasswordDoesNotExist(String username) throws IncorrectUsernameOrPasswordException {
-        for (User user : users) {
-            if (Objects.equals(username, user.getUsername()))
-                throw new IncorrectUsernameOrPasswordException(username);
-        }
-    }
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
         users.add(new User(username, encodePassword(username, password), role));
@@ -60,13 +48,21 @@ public class UserService {
         }
     }
 
-
+    public static void checkUser(String username, String password, String role) throws IncorrectUsernameOrPasswordException {
+        int ok=0;
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(role, user.getRole()))
+                ok=1;
+        }
+        if (ok==0)
+            throw new IncorrectUsernameOrPasswordException(username);
+    }
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
         } catch (IOException e) {
-            throw new ForgotCredentialsException();
+            throw new CouldNotWriteUsersException();
         }
     }
 

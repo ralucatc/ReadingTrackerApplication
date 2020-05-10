@@ -75,7 +75,7 @@ public class firstPgView extends JFrame{
         btnLogin.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()) )) {
+                if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()) )) {
                     JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);

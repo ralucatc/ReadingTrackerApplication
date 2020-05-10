@@ -12,9 +12,9 @@ public class firstPgControllers {
         this.view = view;
     }
 
-    public boolean checkAvailability(String username, String password) {
+    public boolean checkAvailability(String username, String password, String role) {
         try {
-            UserService.checkUser(username, password);
+            UserService.checkUser(username, password, role);
             return true;
         } catch (IncorrectUsernameOrPasswordException e) {
             return false;
