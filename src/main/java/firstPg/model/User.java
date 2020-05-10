@@ -20,6 +20,16 @@ public class User {
     private String username;
     private String password;
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    private String role;
+
     public User() {
     }
 
@@ -27,24 +37,29 @@ public class User {
         this.username = username;
         this.password = password;
     }
-
-
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        firstPg.model.User user = (firstPg.model.User) o;
+        User user = (User) o;
 
         if (!username.equals(user.username)) return false;
-        return password.equals(user.password);
+        if (!password.equals(user.password)) return false;
+        return role.equals(user.role);
     }
 
     @Override
     public int hashCode() {
         int result = username.hashCode();
         result = 31 * result + password.hashCode();
+        result = 31 * result + role.hashCode();
         return result;
     }
 
@@ -52,6 +67,8 @@ public class User {
     public String toString() {
         return "UserDTO{" +
                 "username='" + username + '\'' +
-                ", password='" + password + '}';
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

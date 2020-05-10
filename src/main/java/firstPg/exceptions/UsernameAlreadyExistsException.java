@@ -1,4 +1,4 @@
-package registration.exceptions;
+package firstPg.exceptions;
 
 public class UsernameAlreadyExistsException extends Exception {
 

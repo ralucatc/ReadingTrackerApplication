@@ -6,8 +6,9 @@ import org.apache.commons.io.FileUtils;
 
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
 import firstPg.exceptions.ForgotCredentialsException;
-import firstPg.model.User;
+import firstPg.exceptions.UsernameAlreadyExistsException;
 
+import firstPg.model.User;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -46,6 +47,19 @@ public class UserService {
                 throw new IncorrectUsernameOrPasswordException(username);
         }
     }
+    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
+        checkUserDoesNotAlreadyExist(username);
+        users.add(new User(username, encodePassword(username, password), role));
+        persistUsers();
+    }
+
+    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()))
+                throw new UsernameAlreadyExistsException(username);
+        }
+    }
+
 
     private static void persistUsers() {
         try {
