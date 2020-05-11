@@ -15,69 +15,109 @@ public class firstPgView extends JFrame{
     private JTextField txtUsername;
     private JPasswordField txtPassword;
     private firstPgControllers controller;
-
+    private JComboBox<String> cmbRole;
+    private firstPgControllers controllerRegistration;
 
     public firstPgView() {
         controller = new firstPgControllers(this);
+        controllerRegistration = new firstPgControllers(this);
         //TODO implementare - de facut sa mearga mai bine si corect
 
         setTitle("MyApp: First Page App");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(750, 500);
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);
         Color c = Color.pink;
         contentPane.setBackground(c);
 
+        JLabel mainTitle  = new JLabel("Reading Tracker Application ");
+        mainTitle .setBounds(50, 50, 750, 60);
+        mainTitle.setForeground(Color.BLACK);
+        mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        contentPane.add(mainTitle);
+
         Color cl = Color.lightGray;
         JLabel lblUsername = new JLabel("Username:");
-        lblUsername.setBounds(10, 150, 120, 25);
+        lblUsername.setBackground(Color.BLACK);
+        lblUsername.setForeground(Color.BLACK);
+        lblUsername.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblUsername.setBounds(90, 150, 120, 25);
         lblUsername.setBackground(cl);
         contentPane.add(lblUsername);
 
         txtUsername = new JTextField();
-        txtUsername.setBounds(80, 150, 250, 25);
+        txtUsername.setBounds(180, 150, 350, 25);
         contentPane.add(txtUsername);
 
         JLabel lblPassword = new JLabel("Password:");
-        lblPassword.setBounds(10, 180, 120, 25);
+        lblPassword.setBackground(Color.BLACK);
+        lblPassword.setForeground(Color.BLACK);
+        lblPassword.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblPassword.setBounds(90, 180, 120, 25);
         lblPassword.setBackground(cl);
         contentPane.add(lblPassword);
 
         txtPassword = new JPasswordField();
-        txtPassword.setBounds(80, 180, 250, 25);
+        txtPassword.setBounds(180, 180, 350, 25);
         contentPane.add(txtPassword);
 
-        JLabel ForgotCredentials  = new JLabel("Forgot Credentials?");
-        ForgotCredentials .setBounds(220, 205, 120, 25);
-        ForgotCredentials.setBackground(cl);
+        JLabel lblRole = new JLabel("Role:");
+        lblRole.setBackground(Color.BLACK);
+        lblRole.setForeground(Color.BLACK);
+        lblRole.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblRole.setBounds(90, 210, 120, 25);
+        contentPane.add(lblRole);
+
+        String[] roles = { "Reader", "Author"};
+        cmbRole = new JComboBox<>(roles);
+        cmbRole.setBounds(380, 210, 150, 25);
+        contentPane.add(cmbRole);
+
+        JButton ForgotCredentials  = new JButton("Forgot Credentials?");
+        ForgotCredentials.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                changePassword a = new changePassword();
+            }
+        });
+        ForgotCredentials .setBounds(380, 240, 150, 25);
         contentPane.add(ForgotCredentials);
+
 
         btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()) )) {
+                if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()) )) {
                     JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
-        btnLogin.setBounds(180, 245, 120, 30);
+
+        btnLogin.setBounds(200, 270, 120, 30);
         contentPane.add(btnLogin);
 
         btnRegister = new JButton("Register");
-        btnRegister.setBounds(390, 245, 120, 30);
-        //TODO register login to do smth
+        btnRegister.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (controllerRegistration.checkAvailabilityRegistration(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()))) {
+                    JOptionPane.showMessageDialog(null, "User successfully added", "Adding user", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "User already added", "Adding user", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        btnRegister.setBounds(340, 270, 120, 30);
         contentPane.add(btnRegister);
     }
 
     public static void main(String[] args) throws Exception {
         UserService.loadUsersFromFile();
-
         firstPgView view = new firstPgView();
         view.setVisible(true);
     }

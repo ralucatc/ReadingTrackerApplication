@@ -5,9 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
-import firstPg.exceptions.ForgotCredentialsException;
-import firstPg.model.User;
+import firstPg.exceptions.UsernameAlreadyExistsException;
+import firstPg.exceptions.CouldNotWriteUsersException;
 
+import firstPg.model.User;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -34,25 +35,34 @@ public class UserService {
         });
     }
 
-    public static void checkUser(String username, String password) throws IncorrectUsernameOrPasswordException {
-        checkUserOrPasswordDoesNotExist(username);
-        users.add(new User(username, encodePassword(username, password)));
+    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
+        checkUserDoesNotAlreadyExist(username);
+        users.add(new User(username, encodePassword(username, password), role));
         persistUsers();
     }
 
-    private static void checkUserOrPasswordDoesNotExist(String username) throws IncorrectUsernameOrPasswordException {
+    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
-                throw new IncorrectUsernameOrPasswordException(username);
+                throw new UsernameAlreadyExistsException(username);
         }
     }
 
+    public static void checkUser(String username, String password, String role) throws IncorrectUsernameOrPasswordException {
+        int ok=0;
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(role, user.getRole()))
+                ok=1;
+        }
+        if (ok==0)
+            throw new IncorrectUsernameOrPasswordException(username);
+    }
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
         } catch (IOException e) {
-            throw new ForgotCredentialsException();
+            throw new CouldNotWriteUsersException();
         }
     }
 
