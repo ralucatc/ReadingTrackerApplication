@@ -52,6 +52,7 @@ public class ReaderView extends JFrame {
         btnWantLib.setBounds(270, 180, 350, 25);
         contentPane.add(btnWantLib);
 
+
         JLabel lblCurrent = new JLabel("Currently reading library:");
         lblCurrent.setBackground(Color.BLACK);
         lblCurrent.setForeground(Color.BLACK);
