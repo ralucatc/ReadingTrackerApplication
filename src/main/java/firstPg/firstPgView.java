@@ -2,6 +2,7 @@ package firstPg;
 
 import firstPg.controller.firstPgControllers;
 import firstPg.model.AdminView;
+import firstPg.model.ReaderView;
 import firstPg.services.UserService;
 
 import javax.swing.*;
@@ -16,6 +17,8 @@ public class firstPgView extends JFrame{
     private JTextField txtUsername;
     private JPasswordField txtPassword;
     private firstPgControllers controller;
+
+
     private JComboBox<String> cmbRole;
     private firstPgControllers controllerRegistration;
 
@@ -97,6 +100,12 @@ public class firstPgView extends JFrame{
                 }
                 if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()) )) {
                     JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
+                    if (UserService.checkIfReader((String)cmbRole.getSelectedItem() ))// reader condition
+                    {
+                        ReaderView readerLog = new ReaderView();
+                        readerLog.setVisible(true);
+                    }
+                    // author condition
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);
                 }

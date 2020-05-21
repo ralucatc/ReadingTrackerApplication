@@ -1,4 +1,4 @@
 package firstPg.model;
 
-public class Reader {
+public class Reader extends User {
 }

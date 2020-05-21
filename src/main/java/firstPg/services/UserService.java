@@ -93,4 +93,12 @@ public class UserService {
         }
         return false;
     }
+
+    public static boolean checkIfReader (String role){
+        if(role.equals("Reader")){
+            return true;
+        }
+        return false;
+    }
+
 }
