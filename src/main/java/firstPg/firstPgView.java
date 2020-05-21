@@ -26,7 +26,7 @@ public class firstPgView extends JFrame{
         setTitle("MyApp: First Page App");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(750, 500);
+        setSize(700, 450);
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);
