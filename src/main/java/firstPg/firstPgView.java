@@ -1,6 +1,7 @@
 package firstPg;
 
 import firstPg.controller.firstPgControllers;
+import firstPg.model.AdminView;
 import firstPg.services.UserService;
 
 import javax.swing.*;
@@ -90,6 +91,10 @@ public class firstPgView extends JFrame{
         btnLogin.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                if(UserService.checkIfAdmin(txtUsername.getText(), new String(txtPassword.getPassword()))) {
+                    AdminView adminLog = new AdminView();
+                    adminLog.setVisible(true);
+                }
                 if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()) )) {
                     JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
                 } else {

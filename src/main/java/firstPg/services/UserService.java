@@ -86,4 +86,11 @@ public class UserService {
         }
         return md;
     }
+
+    public static boolean checkIfAdmin (String username, String password){
+        if(username.equals("admin") && password.equals("admin")){
+            return true;
+        }
+        return false;
+    }
 }
