@@ -108,11 +108,13 @@ public class firstPgView extends JFrame{
                         {
                             ReaderView readerLog = new ReaderView();
                             readerLog.setVisible(true);
+                            dispose();
                         }
                         if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
                         {
                             AuthorView authorLog = new AuthorView();
                             authorLog.setVisible(true);
+                            dispose();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);
