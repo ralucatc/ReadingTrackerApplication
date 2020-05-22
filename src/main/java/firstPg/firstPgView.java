@@ -31,6 +31,7 @@ public class firstPgView extends JFrame{
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 450);
+        setLocationRelativeTo(null);
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);
@@ -97,6 +98,7 @@ public class firstPgView extends JFrame{
                 if(UserService.checkIfAdmin(txtUsername.getText(), new String(txtPassword.getPassword()))) {
                     AdminView adminLog = new AdminView();
                     adminLog.setVisible(true);
+                    dispose();
                 }
                 if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()) )) {
                     JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
