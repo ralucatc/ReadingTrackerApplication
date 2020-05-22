@@ -1,5 +1,6 @@
 package firstPg.model;
 import firstPg.controller.firstPgControllers;
+import firstPg.firstPgView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class AdminView extends JFrame {
     private JButton btnAdd;
@@ -20,6 +23,15 @@ public class AdminView extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(700, 450);
         setLocationRelativeTo(null);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                firstPgView view = new firstPgView();
+                view.setVisible(true);
+                dispose();
+            }
+        });
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);
