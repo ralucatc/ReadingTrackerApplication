@@ -34,4 +34,12 @@
   "username" : "author1",
   "password" : "��*��/E��<�)�9�}͠��U�ÅO�\f�\u001F��\u0019��\u001C���C��5��\r�>�#��#uQ\u0002�n����Ը",
   "role" : "Author"
+}, {
+  "username" : "author11",
+  "password" : "�C\u0010�~��\u0015@S��U��\u001C���1���Tw����d��ˉY�>�\u0018�c8��\u0018�\u0012\bK\u0004�\u0013O\u0003�b��'�g\\�\u0013",
+  "role" : "Reader"
+}, {
+  "username" : "author2",
+  "password" : "v+4��\u000F��s�V?ơy\u0015@�o�Py\u0002H��(\u0011{��퐹U�P�����;\u0015e\u0015\u0001���`��\u0013��\bq�h�p&",
+  "role" : "Author"
 } ]
