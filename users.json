@@ -1,0 +1,29 @@
+[ {
+  "username" : "ralucatc",
+  "password" : "\bɡ�r��B\f�T��k�A\u0002ÎGb�%q~\u0015QlgS0H|N\u0013��l�\f2\r.lZ\u001C�|�Ǌ�[\u0017V�dC\u001B0\u0017\u0018\t�",
+  "role" : null
+}, {
+  "username" : "me",
+  "password" : "��V.,��\u0005;�\u0010��\u0018��Y��L��A�\\\u000B˕\b\u0000A��C�un�`��W�����Ӗ�l|*+[�Y��,��",
+  "role" : null
+}, {
+  "username" : "admin",
+  "password" : "�P�\u0016eQm��S\u0017vI\u0002���P&7�a��\u001B\u0016��-i\u001A\te�\u0003쨹���j��Ώw���JD*\u0000�1{�7�",
+  "role" : null
+}, {
+  "username" : "mee",
+  "password" : "�LQ��,�\u0006�+y/��,��4j�1�V\tnt���qł���F\t[E9�B�<H\u000E$Šw17�K%��\u001F��G���",
+  "role" : "Reader"
+}, {
+  "username" : "newuser",
+  "password" : "\u0001vG��.s�?�\b�*�����O�BJ����<{�n������J�gcj���\u000B�������\u001C~X�Ke���q",
+  "role" : "Reader"
+}, {
+  "username" : "deni",
+  "password" : "_�x���mOw��Q�cR�\u0002c '�:b��)N:گ\f\u0002<Ei�z�w\u0005��[���%���\u001D�b��\u0019�b\u0000��Y\u000E",
+  "role" : "Reader"
+}, {
+  "username" : "new",
+  "password" : "\u0003\u000F��JG���\u0017���\u0018�*xp\u001D\u0018q��ǩ�M+�����<ək��\u0007�S�\u000E~�d\u000F�\u001C�s��\u001FϜ�$B\u0011�",
+  "role" : "Reader"
+} ]
