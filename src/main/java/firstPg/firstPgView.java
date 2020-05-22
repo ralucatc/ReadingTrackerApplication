@@ -108,6 +108,7 @@ public class firstPgView extends JFrame{
                         {
                             ReaderView readerLog = new ReaderView();
                             readerLog.setVisible(true);
+                            dispose();
                         }
                         if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
                         {

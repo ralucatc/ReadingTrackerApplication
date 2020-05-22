@@ -1,7 +1,11 @@
 package firstPg.model;
 
+import firstPg.firstPgView;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ReaderView extends JFrame {
 
@@ -14,8 +18,18 @@ public class ReaderView extends JFrame {
     {
         setTitle("MyApp: READER PAGE");
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(700, 450);
+        setLocationRelativeTo(null);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                firstPgView view = new firstPgView();
+                view.setVisible(true);
+                dispose();
+            }
+        });
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);

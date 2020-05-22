@@ -1,7 +1,11 @@
 package firstPg.model;
 
+import firstPg.firstPgView;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class AuthorView extends JFrame {
 
