@@ -22,6 +22,15 @@ public class AuthorView extends JFrame {
         setSize(700, 450);
         setLocationRelativeTo(null);
 
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                firstPgView view = new firstPgView();
+                view.setVisible(true);
+                dispose();
+            }
+        });
+
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);
         Color c = Color.pink;

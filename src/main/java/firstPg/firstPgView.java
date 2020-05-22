@@ -114,6 +114,7 @@ public class firstPgView extends JFrame{
                         {
                             AuthorView authorLog = new AuthorView();
                             authorLog.setVisible(true);
+                            dispose();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);
