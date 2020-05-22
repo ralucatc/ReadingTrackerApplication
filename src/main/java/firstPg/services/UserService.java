@@ -104,4 +104,11 @@ public class UserService {
         return false;
     }
 
+    public static boolean checkIfAuthor (String role){
+        if(role.equals("Author")){
+            return true;
+        }
+        return false;
+    }
+
 }
