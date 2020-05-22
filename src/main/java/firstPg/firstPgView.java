@@ -2,6 +2,7 @@ package firstPg;
 
 import firstPg.controller.firstPgControllers;
 import firstPg.model.AdminView;
+import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
 import firstPg.services.UserService;
 
@@ -100,16 +101,22 @@ public class firstPgView extends JFrame{
                     adminLog.setVisible(true);
                     dispose();
                 }
-                if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()) )) {
-                    JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
-                    if (UserService.checkIfReader((String)cmbRole.getSelectedItem() ))// reader condition
-                    {
-                        ReaderView readerLog = new ReaderView();
-                        readerLog.setVisible(true);
+                else {
+                    if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()))) {
+                        JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
+                        if (UserService.checkIfReader((String) cmbRole.getSelectedItem()))// reader condition
+                        {
+                            ReaderView readerLog = new ReaderView();
+                            readerLog.setVisible(true);
+                        }
+                        if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
+                        {
+                            AuthorView authorLog = new AuthorView();
+                            authorLog.setVisible(true);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);
                     }
-                    // author condition
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrect username or password ", "Login", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
