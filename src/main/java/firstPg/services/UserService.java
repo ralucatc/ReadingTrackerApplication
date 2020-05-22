@@ -9,6 +9,8 @@ import firstPg.exceptions.UsernameAlreadyExistsException;
 import firstPg.exceptions.CouldNotWriteUsersException;
 
 import firstPg.model.User;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -61,6 +63,7 @@ public class UserService {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("users.json"), users);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
