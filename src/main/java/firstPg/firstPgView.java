@@ -4,6 +4,7 @@ import firstPg.controller.firstPgControllers;
 import firstPg.model.AdminView;
 import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
+import firstPg.services.AddBook;
 import firstPg.services.UserService;
 
 import javax.swing.*;
@@ -28,7 +29,7 @@ public class firstPgView extends JFrame{
         controllerRegistration = new firstPgControllers(this);
         //TODO implementare - de facut sa mearga mai bine si corect
 
-        setTitle("MyApp: First Page App");
+        setTitle("Reading Tracker Application");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 450);
@@ -39,10 +40,10 @@ public class firstPgView extends JFrame{
         Color c = Color.pink;
         contentPane.setBackground(c);
 
-        JLabel mainTitle  = new JLabel("Reading Tracker Application ");
-        mainTitle .setBounds(50, 50, 750, 60);
+        JLabel mainTitle  = new JLabel("Reading Tracker Application");
+        mainTitle .setBounds(50, 50, 700, 60);
         mainTitle.setForeground(Color.BLACK);
-        mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        mainTitle.setFont(new Font("Lucida Calligraphy", Font.BOLD, 30));
         contentPane.add(mainTitle);
 
         Color cl = Color.lightGray;

@@ -1,6 +1,7 @@
 package firstPg.model;
 import firstPg.controller.firstPgControllers;
 import firstPg.firstPgView;
+import firstPg.services.AddBook;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,6 +56,14 @@ public class AdminView extends JFrame {
         btnAdd = new JButton("ADD");
         btnAdd.setBounds(180, 150, 350, 25);
         contentPane.add(btnAdd);
+
+        btnAdd.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                AddBook add = new AddBook();
+                add.setVisible(true);
+            }
+        });
 
         JLabel lblEdit = new JLabel("Edit a book:");
         lblEdit.setBackground(Color.BLACK);
