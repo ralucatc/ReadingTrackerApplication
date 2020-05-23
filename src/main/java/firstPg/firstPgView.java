@@ -149,8 +149,7 @@ public class firstPgView extends JFrame{
         UserService.loadUsersFromFile();
         firstPgView view = new firstPgView();
         view.setVisible(true);
-        EditBook edit = new EditBook();
-        edit.setVisible(true);
+
     }
 
 }
