@@ -1,137 +1,66 @@
 [ {
-  "username" : "",
-  "password" : "σ�5~︽�T(P�m�\u0007� �\u0005\u000BW\u0015܃��!�l��G��<]����\u0018҇~�/c�1�GAz��82z�'�>",
-  "role" : null
+  "username" : "ralucatc",
+  "password" : "\bɡ�r��B\f�T��k�A\u0002ÎGb�%q~\u0015QlgS0H|N\u0013��l�\f2\r.lZ\u001C�|�Ǌ�[\u0017V�dC\u001B0\u0017\u0018\t�",
+  "role" : null,
+  "id" : 0
 }, {
-  "username" : "ddd",
-  "password" : "\u001Ak�ނ��W\\���+�Kq�\u0010ѷ��}���}�f�3-�4��7�.�E\u0013z&J�� //�\f;�C\tH\u0002�\u0018�\\5�",
-  "role" : null
+  "username" : "me",
+  "password" : "��V.,��\u0005;�\u0010��\u0018��Y��L��A�\\\u000B˕\b\u0000A��C�un�`��W�����Ӗ�l|*+[�Y��,��",
+  "role" : null,
+  "id" : 0
 }, {
-  "username" : "ssss",
-  "password" : "��=U\u0006\u0011�y>$Ml���\u0017�3.�&�:�>]���+�\t�\u001ECz\u0001uk(?/P^�\fN���ٰ\u0014�x�g�ߛ5�",
-  "role" : null
+  "username" : "admin",
+  "password" : "�P�\u0016eQm��S\u0017vI\u0002���P&7�a��\u001B\u0016��-i\u001A\te�\u0003쨹���j��Ώw���JD*\u0000�1{�7�",
+  "role" : null,
+  "id" : 0
 }, {
-  "username" : "1111",
-  "password" : "bg\r\u001E\u001E�\u0006��u�+ȡa1�x�׼�\u0001{e�Tńv����\b+%���1\t5�e�@�\t�\u001Bh\u0010�e�(��\u0001\u0019�a",
-  "role" : null
+  "username" : "mee",
+  "password" : "�LQ��,�\u0006�+y/��,��4j�1�V\tnt���qł���F\t[E9�B�<H\u000E$Šw17�K%��\u001F��G���",
+  "role" : "Reader",
+  "id" : 0
 }, {
-  "username" : "dfjhfj",
-  "password" : "�\u0007�X�p�R�Wv�'|e�8l})��|\u0018��A�ˇ��@XČ�I\u000B\u001C.j��ԥ\u000E�ͱ`Ƭ-�D�Rƚu�",
-  "role" : null
-}, {
-  "username" : "aaaa",
-  "password" : "�O&\u0003��SeiHH\f�\u001F\u001C�fh[fT��\u001C\u001F,���m\u001C�-\u0016+V\fK��E�G\u001D����\u0004\u0007\u0001��ÄW���\u000F�",
-  "role" : null
-}, {
-  "username" : "aaa",
-  "password" : "��pE\u001D\u001F\u000B��QF\u001C\\�9��q��T,8\u001E>���J�m\u0012�3>��XG�\u0005�K���\u0013\u00146NvH\u0017oVxcق\u0004*�",
-  "role" : null
-}, {
-  "username" : "bbbb",
-  "password" : "r��ܴ`֙�ָT\u0006N3M\u0007\u0001rױ\r\u0012���3W\u001E�\b{�'\u0001ب�����A�&��Rȼ���H�ߩ���s ht",
-  "role" : "Author"
-}, {
-  "username" : "bbbbb",
-  "password" : "\u0017oR\\ֶ�J\nOy��\u000E%l\u0019���yJ�%H��\u00137�~�\u0017\u0011\\�\rޒ��X��\r�qd-�\u0014|��iF���0O",
-  "role" : "Reader"
-}, {
-  "username" : "andreea",
-  "password" : "\t�s�\u0003h�\u0005_R!oG�??(\u001F\\5'��\u0016��$M�?U�\f�5\u0005K��A�҉Yz���\n��\r\u0013��\u000Faq|&R\u000F\u0000�",
-  "role" : "Reader"
-}, {
-  "username" : "andreea123",
-  "password" : "\u0014�3�x��0v0B�Z4�\u001D�ˇ��\u001F���\u0016ʒ�\u0015w�)i�L\u001F�^�\u001D\u000BF�\u001D�,Tȫ�mf̺/�U[�\t",
-  "role" : "Author"
-}, {
-  "username" : "andrei",
-  "password" : "<�\u001F<T\u0000鏶�1��J��kV\u0018<�L�\u001Fk�n\n\u0010S�\bW�ӽ�b6;��~�|�?�9���N��(�T�2;3",
-  "role" : "Reader"
-}, {
-  "username" : "ana",
-  "password" : "����K� ��ѱ��G���.�\u0018�\\�n�X5F'�W�V7#�#�\u000FhU�=e�ju�m\u000B�<�%�v�OҦ�r",
-  "role" : "Reader"
-}, {
-  "username" : "anan",
-  "password" : "�\b\u000B�$J���}��i\u0000\u0007ّx�[�U#\u001E��\u0010M\u0001�K)\u0013���E� �R׫��PC�䌜�\u0000�L�3���\u0006��h",
-  "role" : "Reader"
-}, {
-  "username" : "ddhdh",
-  "password" : "u �J*\u000E������k&�}��W06\u0000k\u0006�\u0000�����D��&+�\u0010��g\u0017��5'�\u0002ʰ�Tp$)mݜ��\u0001l�",
-  "role" : "Reader"
-}, {
-  "username" : "denisa",
-  "password" : "�s�m�\u0012Z�lhx\u0014,>���:Ý\t>\u001D7����SP�\u0005�S��'�b2؎��\u0015�@)�_ђ�4\u001A\u0014E�x���%",
-  "role" : "Reader"
-}, {
-  "username" : "aga",
-  "password" : "�[Bė�i\u0006*\u00177H���\u000Fw��B�V7\u001A��J��x\u0012�5NBD��\u0004�;R�!ē\u0001\u0006y�y�+�����\u000Ew��\u0000",
-  "role" : "Reader"
-}, {
-  "username" : "agga",
-  "password" : "M6����w;G{��\u001C��\\u~~�/5�\u0000\u001C�C��5�J�JCE(\u0018ZN4\u001D�\u001Eژ�\u0000���\f7o�1����M�",
-  "role" : "Reader"
-}, {
-  "username" : "anamaria",
-  "password" : "G��#���\u0005ہ2�Q5\u0001\u000ED��I���+\r��[xc��j)\u0010\u001D���^7��\u000B\u00117\u0016���\u001Bp�` ��\u0001��\u0004b4",
-  "role" : "Reader"
-}, {
-  "username" : "denisaPap",
-  "password" : "f?�EK:��1\u0016�zg8��;��>t�\f��s\u001F\u0015_$�\u001F��T�x�g��[�B�\u0012��hҵ�0��\u0001�m��^>\u001A",
-  "role" : "Reader"
-}, {
-  "username" : "denisaPapGherasim",
-  "password" : "N�No�~�\u0019��/VM�AIݮ�)�A3��\t��\u00127��t��t��\u0006��\u0012PՃ\u0005��Cb�R4>��\u0003����",
-  "role" : "Author"
-}, {
-  "username" : "Raluca",
-  "password" : "\u0015��p�c7�\\D�\u0007q^&{�����#PX\u0012�=f��}�\u000F����\u0001y�̑����~'\u000F>\u0007�*���r^����",
-  "role" : "Reader"
-}, {
-  "username" : "RalucaCarare",
-  "password" : "[�>�<���\u0000�����5[�\u0006.S�lT�\u001CI��\\��\u0007��\f�C��Ū�`��\u000E�\u0006�FF�:\u0006S~�[��Ӿȟ",
-  "role" : "Author"
-}, {
-  "username" : "denisaPapGh",
-  "password" : "\u0006G�\u0019�RSN�q_De���FW�Z��\u0007\u0013��K\tf\u000BL����c�\u001E��������/���ajW�X�B�&�",
-  "role" : "Reader"
-}, {
-  "username" : "Denisa12",
-  "password" : "�,?3/4BVը\u0015@.�|��\u001E�9������d\f�c��Uݔ��J�#v�\u001F5\u0018O��>\u0000�+p���2{\rC�",
-  "role" : "Reader"
-}, {
-  "username" : "sdghg",
-  "password" : "�\u0014\u0011��rH�{o��i�\u001E�;\u000B��\u0012�픥\r�o0>�Y2��|�=x�Z\u0007S_b-K�J��v\u001A[I��SG:�",
-  "role" : "Reader"
-}, {
-  "username" : "hjhjdhf",
-  "password" : "ڟ�;\u000B\u0015K\u001CE\u0014�\n����A�\u0013d�{\u0002��(�8��B\u0015\u001Dƀf��\r\u0018�S5�Ϗ�$\u0012\u0019���_<�5����.l�",
-  "role" : "Reader"
-}, {
-  "username" : "meee",
-  "password" : "�Uy��;RU'�-��\u0010�?k\u0002�,\u0010�qb��w�¢�m��\u0007�c\u0006h\u0002]\u000B�K��R\u0012�� ׶8\u001C7�\bC�",
-  "role" : "Reader"
-}, {
-  "username" : "vfff",
-  "password" : "��\u000E�� 8N\f:j}\n�j�|AYc�\u0006�ّ��I���`�WKh*\u000B��T�\t�a�O�isƩ���O\u001D\u000F2ݷ",
-  "role" : "Reader"
-}, {
-  "username" : "dfjfh",
-  "password" : "�5>\u001BZK^R\u001Dl^xƪ�B\t�L��e\u001FS\u00169\u001E�$M������`��?�\u0002��H~�P'mƑG��:yX�t\u0011��\u0018",
-  "role" : "Reader"
-}, {
-  "username" : "gfg",
-  "password" : "���T6��'��W�H�,_������d�8�\u0000^Np减���r�\u0006��x#���\u001Cy\u00018\n�L���a�!�\u0015;",
-  "role" : "Author"
-}, {
-  "username" : "gfg666",
-  "password" : "�S�ΓQksnT\u0016\u000B^O�v�s)ה�R|�&s\u0003�Q/\u0005�\u0005c��}�\u0007��zW�,y�n�i3ObN��.rd�h�d",
-  "role" : "Reader"
+  "username" : "newuser",
+  "password" : "\u0001vG��.s�?�\b�*�����O�BJ����<{�n������J�gcj���\u000B�������\u001C~X�Ke���q",
+  "role" : "Reader",
+  "id" : 0
 }, {
   "username" : "deni",
   "password" : "_�x���mOw��Q�cR�\u0002c '�:b��)N:گ\f\u0002<Ei�z�w\u0005��[���%���\u001D�b��\u0019�b\u0000��Y\u000E",
-  "role" : "Reader"
+  "role" : "Reader",
+  "id" : 0
 }, {
-  "username" : "denis",
-  "password" : "9�\u001F�\u0018���e�(+cM�\u000E\r\u0003�n�\u000FK��ފ\u0001X�#p�N%��C9l�\t�8wM/\u000Fa�\u0018RqĮC�W)",
-  "role" : "Author"
+  "username" : "new",
+  "password" : "\u0003\u000F��JG���\u0017���\u0018�*xp\u001D\u0018q��ǩ�M+�����<ək��\u0007�S�\u000E~�d\u000F�\u001C�s��\u001FϜ�$B\u0011�",
+  "role" : "Reader",
+  "id" : 0
+}, {
+  "username" : "ral",
+  "password" : "�P�ߥ���r� \u0019}��ɐk��^��I����:���7&+�_\u0010�\u0015�- ��'[\u001EB��@Փ��\u0019\u001D�+k",
+  "role" : "Reader",
+  "id" : 0
+}, {
+  "username" : "author1",
+  "password" : "��*��/E��<�)�9�}͠��U�ÅO�\f�\u001F��\u0019��\u001C���C��5��\r�>�#��#uQ\u0002�n����Ը",
+  "role" : "Author",
+  "id" : 0
+}, {
+  "username" : "author11",
+  "password" : "�C\u0010�~��\u0015@S��U��\u001C���1���Tw����d��ˉY�>�\u0018�c8��\u0018�\u0012\bK\u0004�\u0013O\u0003�b��'�g\\�\u0013",
+  "role" : "Reader",
+  "id" : 0
+}, {
+  "username" : "author2",
+  "password" : "v+4��\u000F��s�V?ơy\u0015@�o�Py\u0002H��(\u0011{��퐹U�P�����;\u0015e\u0015\u0001���`��\u0013��\bq�h�p&",
+  "role" : "Author",
+  "id" : 0
+}, {
+  "username" : "author3",
+  "password" : "�lV����\u0006:��LX-��vւ��\u0006�}\u0001�\u0007�H�\u0005�>V2�$\u001A�\u000Fw,}F�7�u��S\u0007Gpx�&D�P8/+�",
+  "role" : "Reader",
+  "id" : 11
+}, {
+  "username" : "author100",
+  "password" : "\u0005Y�? Z�C+.D�W�ۄ��\u001C�>�HxE\u0010���\u0012.�k�D+\u0015b�;\u001E�J=tS�$\u0007^\u0019���\f\u0012@�\t�a��\u001F",
+  "role" : "Author",
+  "id" : 12
 } ]

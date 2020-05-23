@@ -40,9 +40,13 @@ public class UserService {
         });
     }
 
+    public static int getUsersCount(){
+        return users.size();
+    }
+
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        users.add(new User(username, encodePassword(username, password), role));
+        users.add(new User(username, encodePassword(username, password), role, getUsersCount()));
         persistUsers();
     }
 
@@ -53,15 +57,23 @@ public class UserService {
         }
     }
 
-    public static void checkUser(String username, String password, String role) throws IncorrectUsernameOrPasswordException {
+    public static User checkUser(String username, String password, String role) throws IncorrectUsernameOrPasswordException {
         int ok=0;
+        User u = null;
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()) && Objects.equals(role, user.getRole()))
+            {
                 ok=1;
+                u = user;
+            }
         }
         if (ok==0)
             throw new IncorrectUsernameOrPasswordException(username);
+
+        return u;
     }
+
+
     public static void checkBook (String title) throws BookDoesNotExistException {
         int ok=0;
         for (Books book : books) {
@@ -71,6 +83,7 @@ public class UserService {
         if (ok==0)
             throw new BookDoesNotExistException(title);
     }
+
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();

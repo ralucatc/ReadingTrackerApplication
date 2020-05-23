@@ -1,6 +1,7 @@
 package firstPg.services;
 
 import firstPg.changePassword;
+import firstPg.model.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,9 +17,11 @@ public class AddBook extends JFrame{
     private JButton addButton;
     private String Title, Author, Year, Summary;
     static String summery;
+    private User user;
 
 
-    public AddBook() {
+    public AddBook(User user) {
+        this.user =user;
         setTitle("Add a book");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -100,7 +103,7 @@ public class AddBook extends JFrame{
                 Year = year.getText().trim();
                 Summary = summary.getText().trim();
 
-                summery = ("Book Title: " + Title + " , ") + ("Author Name: "+ Author + " , ") + ("Year: " + Year + " , ") + ("Summary: " + Summary);
+                summery = ("Book Title: " + Title + " , ") + ("Author Name: "+ Author + " , ") + ("Year: " + Year + " , ") + ("Summary: " + Summary + " , ") + "User ID:" + user.getID() ;
 
                 String Data = AddBook.summery;
                 try{

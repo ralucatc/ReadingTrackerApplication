@@ -2,6 +2,7 @@ package firstPg.model;
 
 import firstPg.firstPgView;
 import firstPg.services.AddBook;
+import firstPg.services.EditBook;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class AuthorView extends JFrame {
 
@@ -16,9 +20,11 @@ public class AuthorView extends JFrame {
     private JButton btnEdit;
     private JButton btnDelete;
     private JButton btnList;
+    private User user;
 
-    public AuthorView()
+    public AuthorView(User user)
     {
+        this.user = user;
         setTitle("AUTHOR PAGE");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -60,7 +66,7 @@ public class AuthorView extends JFrame {
         btnAdd.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AddBook add = new AddBook();
+                AddBook add = new AddBook(user);
                 add.setVisible(true);
             }
         });
@@ -76,6 +82,14 @@ public class AuthorView extends JFrame {
         btnEdit = new JButton("EDIT");
         btnEdit.setBounds(270, 180, 350, 25);
         contentPane.add(btnEdit);
+
+        btnEdit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                EditBook edit = new EditBook();
+                edit.setVisible(true);
+            }
+        });
 
         JLabel lblDelete = new JLabel("Delete a book:");
         lblDelete.setBackground(Color.BLACK);
@@ -100,6 +114,8 @@ public class AuthorView extends JFrame {
         btnList = new JButton("BOOKS LIST");
         btnList.setBounds(270, 240, 350, 25);
         contentPane.add(btnList);
+
+
 
     }
 

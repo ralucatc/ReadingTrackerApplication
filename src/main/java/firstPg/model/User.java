@@ -19,6 +19,15 @@ public class User {
 
     private String username;
     private String password;
+    private int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getRole() {
         return role;
@@ -37,10 +46,11 @@ public class User {
         this.username = username;
         this.password = password;
     }
-    public User(String username, String password, String role) {
+    public User(String username, String password, String role, int ID) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.ID = ID;
     }
 
     @Override

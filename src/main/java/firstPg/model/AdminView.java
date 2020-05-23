@@ -2,6 +2,7 @@ package firstPg.model;
 import firstPg.controller.firstPgControllers;
 import firstPg.firstPgView;
 import firstPg.services.AddBook;
+import firstPg.services.EditBook;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ public class AdminView extends JFrame {
 
     public AdminView()
     {
+        User user = new User("admin", "admin", "", 1000);
         setTitle("MyApp: ADMIN PAGE");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -60,7 +62,7 @@ public class AdminView extends JFrame {
         btnAdd.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AddBook add = new AddBook();
+                AddBook add = new AddBook(user);
                 add.setVisible(true);
             }
         });
@@ -76,6 +78,14 @@ public class AdminView extends JFrame {
         btnEditBook = new JButton("EDIT");
         btnEditBook.setBounds(180, 180, 350, 25);
         contentPane.add(btnEditBook);
+
+        btnEditBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                EditBook edit = new EditBook();
+                edit.setVisible(true);
+            }
+        });
 
         JLabel lblDelete = new JLabel("Delete a book:");
         lblDelete.setBackground(Color.BLACK);

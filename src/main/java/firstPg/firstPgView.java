@@ -4,7 +4,9 @@ import firstPg.controller.firstPgControllers;
 import firstPg.model.AdminView;
 import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
+import firstPg.model.User;
 import firstPg.services.AddBook;
+import firstPg.services.EditBook;
 import firstPg.services.UserService;
 
 import javax.swing.*;
@@ -103,7 +105,8 @@ public class firstPgView extends JFrame{
                     dispose();
                 }
                 else {
-                    if (controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()))) {
+                    User user = controller.checkAvailability(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()));
+                    if (user != null) {
                         JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
                         if (UserService.checkIfReader((String) cmbRole.getSelectedItem()))// reader condition
                         {
@@ -113,7 +116,7 @@ public class firstPgView extends JFrame{
                         }
                         if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
                         {
-                            AuthorView authorLog = new AuthorView();
+                            AuthorView authorLog = new AuthorView(user);
                             authorLog.setVisible(true);
                             dispose();
                         }
@@ -146,6 +149,7 @@ public class firstPgView extends JFrame{
         UserService.loadUsersFromFile();
         firstPgView view = new firstPgView();
         view.setVisible(true);
+
     }
 
 }
