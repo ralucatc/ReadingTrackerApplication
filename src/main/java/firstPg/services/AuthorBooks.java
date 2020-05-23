@@ -16,7 +16,6 @@ import java.util.List;
 import javax.swing.*;
 
 public class AuthorBooks extends JFrame {
-
     private JTextField txtAddBook;
     private JButton btnAddBook;
     private JComboBox<String> cmbLibrary;
@@ -32,17 +31,16 @@ public class AuthorBooks extends JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        this.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                ReaderView view = new ReaderView();
-                view.setVisible(true);
-                dispose();
-            }
-        });
-
         JTable table = new JTable();
+
+        String readLine = null;
+
         BooksListTableModel tableModel = new BooksListTableModel();
+        File file = new File("src/main/resources/BooksLibrary");
+
+        FileReader reader = new FileReader(file);
+        BufferedReader bufReader = new BufferedReader(reader);
+
         tableModel.setList(booksList);
         table.setModel(tableModel);
 
@@ -55,7 +53,6 @@ public class AuthorBooks extends JFrame {
         JScrollPane scroll = new JScrollPane(table);
         scroll.getViewport().setBackground(pink_d);
         frame.add(scroll);
-
     }
 }
 

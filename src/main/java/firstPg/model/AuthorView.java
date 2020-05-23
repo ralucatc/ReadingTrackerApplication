@@ -1,10 +1,7 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
-import firstPg.services.AddBook;
-import firstPg.services.AuthorBooks;
-import firstPg.services.BooksList;
-import firstPg.services.EditBook;
+import firstPg.services.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -107,6 +104,14 @@ public class AuthorView extends JFrame {
         btnDelete.setBounds(270, 210, 350, 25);
         contentPane.add(btnDelete);
 
+        btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DeleteBook delete = new DeleteBook();
+                delete.setVisible(true);
+            }
+        });
+
         JLabel lblList = new JLabel("See all my books:");
         lblList.setBackground(Color.BLACK);
         lblList.setForeground(Color.BLACK);
@@ -130,12 +135,14 @@ public class AuthorView extends JFrame {
                     String readLine;
                     ArrayList<Books> booksList = new ArrayList<Books>();
                     while ((readLine = bufReader.readLine()) != null) {
-                        String[] splitData = readLine.split(",");
-                        String userID = splitData[4].split(":")[1];
-                        if(userID.equals(String.valueOf(user.getID()))){
+                        String[] splitData = readLine.trim().split(",");
+                        String userID = splitData[4];
+                        if(userID.trim().equals(String.valueOf(user.getID()))){
                             Books book = new Books();
                             book.setTitle(splitData[0]);
                             book.setAuthor(splitData[1]);
+                            book.setPublicationYear(splitData[2]);
+                            book.setDescription(splitData[3]);
                             booksList.add(book);
                         }
                     }
