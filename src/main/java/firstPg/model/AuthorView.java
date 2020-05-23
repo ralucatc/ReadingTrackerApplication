@@ -17,9 +17,11 @@ public class AuthorView extends JFrame {
     private JButton btnEdit;
     private JButton btnDelete;
     private JButton btnList;
+    private User user;
 
-    public AuthorView()
+    public AuthorView(User user)
     {
+        this.user = user;
         setTitle("AUTHOR PAGE");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -61,7 +63,7 @@ public class AuthorView extends JFrame {
         btnAdd.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AddBook add = new AddBook();
+                AddBook add = new AddBook(user);
                 add.setVisible(true);
             }
         });

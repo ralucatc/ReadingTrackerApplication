@@ -20,6 +20,7 @@ public class AdminView extends JFrame {
 
     public AdminView()
     {
+        User user = new User("admin", "admin", "", 1000);
         setTitle("MyApp: ADMIN PAGE");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -61,7 +62,7 @@ public class AdminView extends JFrame {
         btnAdd.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AddBook add = new AddBook();
+                AddBook add = new AddBook(user);
                 add.setVisible(true);
             }
         });

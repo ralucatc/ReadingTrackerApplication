@@ -2,6 +2,7 @@ package firstPg.controller;
 
 import firstPg.firstPgView;
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
+import firstPg.model.User;
 import firstPg.services.UserService;
 import firstPg.exceptions.UsernameAlreadyExistsException;
 
@@ -12,12 +13,11 @@ public class firstPgControllers {
         this.view = view;
     }
 
-    public boolean checkAvailability(String username, String password, String role) {
+    public User checkAvailability(String username, String password, String role) {
         try {
-            UserService.checkUser(username, password, role);
-            return true;
+            return UserService.checkUser(username, password, role);
         } catch (IncorrectUsernameOrPasswordException e) {
-            return false;
+            return null;
         }
     }
     public boolean checkAvailabilityRegistration(String username, String password, String role) {
