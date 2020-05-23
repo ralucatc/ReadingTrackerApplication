@@ -19,6 +19,7 @@ public class BooksList extends JFrame {
     private JTextField txtAddBook;
     private JButton btnAddBook;
     private JComboBox<String> cmbLibrary;
+    private String Title;
 
     public BooksList() throws FileNotFoundException {
 
@@ -87,11 +88,27 @@ public class BooksList extends JFrame {
         scroll.add(cmbLibrary);
 
         btnAddBook  = new JButton("Add Book");
-      /*  btnAddBook.addActionListener(new ActionListener() {
+        btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // add book in txt file for library
+                Title = ("");
+                Title = txtAddBook.getText().trim();
+                System.out.println(Title);
+                // de facut butotnul sa functioneze TO DO
+               /* String Data = AddBook.summery;
+                try{
+                    BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/BooksLibrary"), true));
+                    reader1.write(Data);
+                    reader1.newLine();
+                    reader1.close();
+                    JOptionPane.showMessageDialog(null, "Book added!", "Adding book in library", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                }catch(IOException E){
+                    System.out.println("Error is " + E);
+                }
+
+                */
             }
-        });*/
+        });
         btnAddBook.setBounds(270, 475, 170, 25);
         btnAddBook.setBackground(Color.white);
         scroll.add(btnAddBook);
