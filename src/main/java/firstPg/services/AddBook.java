@@ -104,11 +104,12 @@ public class AddBook extends JFrame{
 
                 String Data = AddBook.summery;
                 try{
-                    BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("D:\\Uni\\An 2\\Sem 2\\FIS\\ReadingTrackerApplication\\src\\main\\resources\\BooksLibrary"), true));
+                    BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/BooksLibrary"), true));
                     reader1.write(Data);
                     reader1.newLine();
                     reader1.close();
                     JOptionPane.showMessageDialog(null, "Book added!", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
                 }catch(IOException E){
                     System.out.println("Error is " + E);
                 }
