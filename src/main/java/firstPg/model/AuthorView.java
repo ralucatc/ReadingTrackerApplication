@@ -2,6 +2,8 @@ package firstPg.model;
 
 import firstPg.firstPgView;
 import firstPg.services.AddBook;
+import firstPg.services.AuthorBooks;
+import firstPg.services.BooksList;
 import firstPg.services.EditBook;
 
 import javax.swing.*;
@@ -13,6 +15,8 @@ import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 public class AuthorView extends JFrame {
 
@@ -114,6 +118,34 @@ public class AuthorView extends JFrame {
         btnList = new JButton("BOOKS LIST");
         btnList.setBounds(270, 240, 350, 25);
         contentPane.add(btnList);
+
+        btnList.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                File file = new File("src/main/resources/BooksLibrary");
+                try {
+                    FileReader reader = new FileReader(file);
+                    BufferedReader bufReader = new BufferedReader(reader);
+
+                    String readLine;
+                    ArrayList<Books> booksList = new ArrayList<Books>();
+                    while ((readLine = bufReader.readLine()) != null) {
+                        String[] splitData = readLine.split(",");
+                        String userID = splitData[4].split(":")[1];
+                        if(userID.equals(String.valueOf(user.getID()))){
+                            Books book = new Books();
+                            book.setTitle(splitData[0]);
+                            book.setAuthor(splitData[1]);
+                            booksList.add(book);
+                        }
+                    }
+                    new AuthorBooks(booksList);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+               // setVisible(false);
+            }
+        });
 
 
 
