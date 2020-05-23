@@ -32,7 +32,7 @@ public class BooksList extends JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        this.addWindowListener(new WindowAdapter() {
+        frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 ReaderView view = new ReaderView();
