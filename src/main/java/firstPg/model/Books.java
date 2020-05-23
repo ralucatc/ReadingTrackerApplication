@@ -1,4 +1,6 @@
-public class Book {
+package firstPg.model;
+
+public class Books extends Object {
 
     private String author;
     private String title;
