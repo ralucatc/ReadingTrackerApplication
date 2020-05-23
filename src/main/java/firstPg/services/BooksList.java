@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.swing.*;
 
@@ -32,7 +33,7 @@ public class BooksList extends JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        this.addWindowListener(new WindowAdapter() {
+        frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 ReaderView view = new ReaderView();
@@ -59,6 +60,8 @@ public class BooksList extends JFrame {
                 Books book = new Books();
                 book.setTitle(splitData[0]);
                 book.setAuthor(splitData[1]);
+                book.setPublicationYear(splitData[2]);
+                book.setDescription(splitData[3]);
                 booksList.add(book);
             }
         } catch(IOException ex) {}
@@ -88,27 +91,19 @@ public class BooksList extends JFrame {
         scroll.add(cmbLibrary);
 
         btnAddBook  = new JButton("Add Book");
-        btnAddBook.addActionListener(new ActionListener() {
+      /* btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Title = ("");
-                Title = txtAddBook.getText().trim();
-                System.out.println(Title);
-                // de facut butotnul sa functioneze TO DO
-               /* String Data = AddBook.summery;
-                try{
-                    BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/BooksLibrary"), true));
-                    reader1.write(Data);
-                    reader1.newLine();
-                    reader1.close();
-                    JOptionPane.showMessageDialog(null, "Book added!", "Adding book in library", JOptionPane.INFORMATION_MESSAGE);
-                    dispose();
-                }catch(IOException E){
-                    System.out.println("Error is " + E);
-                }
+               if (Objects.equals(role, .getRole())) {
+                   AddBookWantLibrary add1= new AddBookWantLibrary();
+                   add1.setVisible(true);
+               }else
+               {
+                   AddBookCurrentlyLibrary add2 = new AddBookCurrentlyLibrary();
+                   add2.setVisible(true);
+               }
 
-                */
             }
-        });
+        });*/
         btnAddBook.setBounds(270, 475, 170, 25);
         btnAddBook.setBackground(Color.white);
         scroll.add(btnAddBook);
