@@ -12,20 +12,21 @@ import firstPg.exceptions.CouldNotWriteUsersException;
 
 import firstPg.model.User;
 
-import java.io.File;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class UserService {
 
     private static List<User> users;
-    private static List<Books> books;
     private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
 
     public static void loadUsersFromFile() throws IOException {
@@ -73,14 +74,19 @@ public class UserService {
         return u;
     }
 
-
-    public static void checkBook (String title) throws BookDoesNotExistException {
+    public static void SearchBooks (String title) throws BookDoesNotExistException, IOException {
         int ok=0;
-        for (Books book : books) {
-            if (Objects.equals(title, book.getTitle()))
-                ok=1;
+        File file = new File("src/main/resources/BooksLibrary");
+        FileReader reader = new FileReader(file);
+        BufferedReader bufReader = new BufferedReader(reader);
+        String readLine = null;
+        while((readLine = bufReader.readLine()) != null) {
+                String[] splitData = readLine.split(",");
+                if (title.equals(splitData[0])) {
+                    ok=1;
+                }
         }
-        if (ok==0)
+        if(ok==0)
             throw new BookDoesNotExistException(title);
     }
 
@@ -137,3 +143,5 @@ public class UserService {
     }
 
 }
+
+

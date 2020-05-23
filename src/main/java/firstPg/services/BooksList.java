@@ -1,5 +1,7 @@
 package firstPg.services;
 
+import firstPg.controller.firstPgControllers;
+import firstPg.exceptions.BookDoesNotExistException;
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
 
@@ -20,7 +22,19 @@ public class BooksList extends JFrame {
     private JTextField txtAddBook;
     private JButton btnAddBook;
     private JComboBox<String> cmbLibrary;
-    private String Title;
+
+    public boolean checkExistanceOfBooks (String title)
+    {
+        try {
+            UserService.SearchBooks(title);
+            return true;
+        } catch (BookDoesNotExistException e) {
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public BooksList() throws FileNotFoundException {
 
@@ -90,20 +104,28 @@ public class BooksList extends JFrame {
         cmbLibrary.setBackground(Color.white);
         scroll.add(cmbLibrary);
 
+
         btnAddBook  = new JButton("Add Book");
-      /* btnAddBook.addActionListener(new ActionListener() {
+        btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               if (Objects.equals(role, .getRole())) {
-                   AddBookWantLibrary add1= new AddBookWantLibrary();
-                   add1.setVisible(true);
+                int ok=0;
+                if (Objects.equals("Want to read Library", String.valueOf(cmbLibrary.getSelectedItem()))) {
+                   System.out.println("Want to read library");
+                    if (checkExistanceOfBooks(txtAddBook.getText() )){
+                        JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Book doesn't exist", "Adding book", JOptionPane.ERROR_MESSAGE);
+                    }
+
                }else
                {
+                   System.out.println("Currently reading library ");
                    AddBookCurrentlyLibrary add2 = new AddBookCurrentlyLibrary();
                    add2.setVisible(true);
                }
 
             }
-        });*/
+        });
         btnAddBook.setBounds(270, 475, 170, 25);
         btnAddBook.setBackground(Color.white);
         scroll.add(btnAddBook);
