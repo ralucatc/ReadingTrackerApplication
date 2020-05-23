@@ -5,6 +5,7 @@ import firstPg.model.AdminView;
 import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
 import firstPg.services.AddBook;
+import firstPg.services.EditBook;
 import firstPg.services.UserService;
 
 import javax.swing.*;
@@ -146,6 +147,8 @@ public class firstPgView extends JFrame{
         UserService.loadUsersFromFile();
         firstPgView view = new firstPgView();
         view.setVisible(true);
+        EditBook edit = new EditBook();
+        edit.setVisible(true);
     }
 
 }

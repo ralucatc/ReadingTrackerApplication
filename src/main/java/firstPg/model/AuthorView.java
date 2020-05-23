@@ -2,6 +2,7 @@ package firstPg.model;
 
 import firstPg.firstPgView;
 import firstPg.services.AddBook;
+import firstPg.services.EditBook;
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,6 +77,14 @@ public class AuthorView extends JFrame {
         btnEdit = new JButton("EDIT");
         btnEdit.setBounds(270, 180, 350, 25);
         contentPane.add(btnEdit);
+
+        btnEdit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                EditBook edit = new EditBook();
+                edit.setVisible(true);
+            }
+        });
 
         JLabel lblDelete = new JLabel("Delete a book:");
         lblDelete.setBackground(Color.BLACK);
