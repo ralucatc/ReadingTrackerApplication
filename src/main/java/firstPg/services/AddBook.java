@@ -103,7 +103,7 @@ public class AddBook extends JFrame {
                 Year = year.getText().trim();
                 Summary = summary.getText().trim();
 
-                summery = ( Title + " , ") + ( Author + " , ") + ( Year + " , ") + ( Summary + " , ") + ("User ID:" + user.getID());
+                summery = ( Title + " , ") + ( Author + " , ") + ( Year + " , ") + ( Summary + " , ") +  + user.getID();
 
                 String Data = AddBook.summery;
                 try {

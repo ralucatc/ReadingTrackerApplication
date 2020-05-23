@@ -6,6 +6,7 @@ import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
 import firstPg.model.User;
 import firstPg.services.AddBook;
+import firstPg.services.DeleteBook;
 import firstPg.services.EditBook;
 import firstPg.services.UserService;
 
