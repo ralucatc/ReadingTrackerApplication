@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-public class AddBook extends JFrame{
+public class AddBook extends JFrame {
     private JTextField bookTitle;
     private JTextField authorName;
     private JTextField year;
@@ -21,7 +21,7 @@ public class AddBook extends JFrame{
 
 
     public AddBook(User user) {
-        this.user =user;
+        this.user = user;
         setTitle("Add a book");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -103,22 +103,22 @@ public class AddBook extends JFrame{
                 Year = year.getText().trim();
                 Summary = summary.getText().trim();
 
-                summery = ("Book Title: " + Title + " , ") + ("Author Name: "+ Author + " , ") + ("Year: " + Year + " , ") + ("Summary: " + Summary + " , ") + "User ID:" + user.getID() ;
+                summery = ("Book Title: " + Title + " , ") + ("Author Name: " + Author + " , ") + ("Year: " + Year + " , ") +
+                        ("Summary: " + Summary + " , ") + "User ID:" + user.getID();
 
                 String Data = AddBook.summery;
-                try{
+                try {
                     BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/BooksLibrary"), true));
                     reader1.write(Data);
                     reader1.newLine();
                     reader1.close();
                     JOptionPane.showMessageDialog(null, "Book added!", "Adding book", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
-                }catch(IOException E){
+                } catch (IOException E) {
                     System.out.println("Error is " + E);
                 }
             }
         });
-
 
 
     }
