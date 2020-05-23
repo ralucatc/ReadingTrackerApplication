@@ -62,6 +62,7 @@ public class ReaderView extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 new SeeTheBooksList();
                 setVisible(true);
+                dispose();
             }
         });
 

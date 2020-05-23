@@ -1,8 +1,11 @@
 package firstPg.services;
 
 import firstPg.model.Books;
+import firstPg.model.ReaderView;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,10 +32,21 @@ public class SeeTheBooksList extends JFrame {
        contentPane.setBackground(c);
        setVisible(true);
     */
+
+
        try {
 
            JFrame frame = new JFrame();
            frame.setLayout(new BorderLayout());
+
+           frame.addWindowListener(new WindowAdapter() {
+               @Override
+               public void windowClosing(WindowEvent e) {
+                   ReaderView view = new ReaderView();
+                   view.setVisible(true);
+                   dispose();
+               }
+           });
 
            JTable table = new JTable();
 
@@ -62,7 +76,6 @@ public class SeeTheBooksList extends JFrame {
            frame.setResizable(false);
            frame.setSize(500, 600);
            frame.setLocationRelativeTo(null);
-           frame.pack();
            frame.setVisible(true);
 
        } catch(IOException ex) {}
