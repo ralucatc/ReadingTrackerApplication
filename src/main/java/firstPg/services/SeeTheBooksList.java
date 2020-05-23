@@ -33,7 +33,6 @@ public class SeeTheBooksList extends JFrame {
        setVisible(true);
     */
 
-
        try {
 
            JFrame frame = new JFrame();

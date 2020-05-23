@@ -1,6 +1,7 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
+import firstPg.services.BooksList;
 import firstPg.services.SeeTheBooksList;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
 
 public class ReaderView extends JFrame {
 
@@ -60,7 +62,11 @@ public class ReaderView extends JFrame {
         btnSee.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new SeeTheBooksList();
+                try {
+                    new BooksList();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 setVisible(true);
                 dispose();
             }
