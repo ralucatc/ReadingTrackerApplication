@@ -4,7 +4,7 @@ public class Books extends Object {
 
     private String author;
     private String title;
-    private int publicationYear;
+    private String publicationYear;
     private String description;
 
     public String getAuthor() {
@@ -15,11 +15,11 @@ public class Books extends Object {
         this.author = author;
     }
 
-    public int getPublicationYear() {
+    public String getPublicationYear() {
         return publicationYear;
     }
 
-    public void setPublicationYear(int publicationYear) {
+    public void setPublicationYear(String publicationYear) {
         this.publicationYear = publicationYear;
     }
 

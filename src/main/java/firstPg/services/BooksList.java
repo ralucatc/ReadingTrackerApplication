@@ -59,6 +59,8 @@ public class BooksList extends JFrame {
                 Books book = new Books();
                 book.setTitle(splitData[0]);
                 book.setAuthor(splitData[1]);
+                book.setPublicationYear(splitData[2]);
+                book.setDescription(splitData[3]);
                 booksList.add(book);
             }
         } catch(IOException ex) {}

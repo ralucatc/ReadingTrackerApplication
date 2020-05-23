@@ -9,7 +9,7 @@ import java.util.List;
 public class BooksListTableModel extends AbstractTableModel {
 
     private List<Books> list = new ArrayList<Books>();
-    private String[] columnNames = {"Title", "Author"};
+    private String[] columnNames = {"Title", "Author", "Year of publication", "Summary"};
 
     public void setList(List<Books> list) {
         this.list = list;
@@ -35,6 +35,10 @@ public class BooksListTableModel extends AbstractTableModel {
                 return list.get(rowIndex).getTitle();
             case 1:
                 return list.get(rowIndex).getAuthor();
+            case 2:
+                return list.get(rowIndex).getPublicationYear();
+            case 3:
+                return list.get(rowIndex).getDescription();
             default:
                 return null;
         }
