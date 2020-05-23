@@ -2,6 +2,8 @@ package firstPg.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import firstPg.exceptions.BookDoesNotExistException;
+import firstPg.model.Books;
 import org.apache.commons.io.FileUtils;
 
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
@@ -23,6 +25,7 @@ import java.util.Objects;
 public class UserService {
 
     private static List<User> users;
+    private static List<Books> books;
     private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
 
     public static void loadUsersFromFile() throws IOException {
@@ -68,6 +71,17 @@ public class UserService {
             throw new IncorrectUsernameOrPasswordException(username);
 
         return u;
+    }
+
+
+    public static void checkBook (String title) throws BookDoesNotExistException {
+        int ok=0;
+        for (Books book : books) {
+            if (Objects.equals(title, book.getTitle()))
+                ok=1;
+        }
+        if (ok==0)
+            throw new BookDoesNotExistException(title);
     }
 
     private static void persistUsers() {

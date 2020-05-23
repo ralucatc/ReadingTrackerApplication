@@ -1,11 +1,16 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
+import firstPg.services.BooksList;
+
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
 
 public class ReaderView extends JFrame {
 
@@ -42,7 +47,7 @@ public class ReaderView extends JFrame {
         mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
         contentPane.add(mainTitle);
 
-        JLabel lblSee = new JLabel("See the list with all the authors:");
+        JLabel lblSee = new JLabel("See the list with all the books:");
         lblSee.setBackground(Color.BLACK);
         lblSee.setForeground(Color.BLACK);
         lblSee.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -53,6 +58,19 @@ public class ReaderView extends JFrame {
         btnSee = new JButton("SEE THE LIST");
         btnSee.setBounds(270, 150, 350, 25);
         contentPane.add(btnSee);
+
+        btnSee.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new BooksList();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
 
         JLabel lblWant = new JLabel(" Want to read library:");
         lblWant.setBackground(Color.BLACK);
