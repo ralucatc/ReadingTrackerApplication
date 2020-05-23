@@ -17,8 +17,7 @@ import javax.swing.JTable;
 public class SeeTheBooksList extends JFrame {
 
    public SeeTheBooksList(){
-
-       setTitle("All the books added in the application");
+      /* setTitle("All the books added in the application");
        setResizable(false);
        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        setSize(500, 600);
@@ -29,8 +28,11 @@ public class SeeTheBooksList extends JFrame {
        Color c = Color.pink;
        contentPane.setBackground(c);
        setVisible(true);
-
+    */
        try {
+
+           JFrame frame = new JFrame();
+           frame.setLayout(new BorderLayout());
 
            JTable table = new JTable();
 
@@ -45,7 +47,6 @@ public class SeeTheBooksList extends JFrame {
            List<Books> booksList = new ArrayList<>();
            while((readLine = bufReader.readLine()) != null) {
                String[] splitData = readLine.split(",");
-
                Books book = new Books();
                book.setTitle(splitData[0]);
                book.setAuthor(splitData[1]);
@@ -55,14 +56,17 @@ public class SeeTheBooksList extends JFrame {
            tableModel.setList(booksList);
            table.setModel(tableModel);
 
-           add(new JScrollPane(table));
-           setVisible(true);
+           frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+           frame.add(new JScrollPane(table));
+           frame.setTitle("All the books added in the application");
+           frame.setResizable(false);
+           frame.setSize(500, 600);
+           frame.setLocationRelativeTo(null);
+           frame.pack();
+           frame.setVisible(true);
 
        } catch(IOException ex) {}
-
-
     }
-
 }
 
 

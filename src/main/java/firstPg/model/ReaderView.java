@@ -60,8 +60,8 @@ public class ReaderView extends JFrame {
         btnSee.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                SeeTheBooksList see = new SeeTheBooksList();
-                see.setVisible(true);
+                new SeeTheBooksList();
+                setVisible(true);
             }
         });
 
