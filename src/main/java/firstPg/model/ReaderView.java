@@ -139,13 +139,11 @@ public class ReaderView extends JFrame {
         btnProgress.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                try {
-                   new TrackingProgress(user);
-                    setVisible(true);
-                    dispose();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+
+                ProgressTracking pr= new ProgressTracking(user);
+                pr.setVisible(true);
+                dispose();
+
             }
         });
 
