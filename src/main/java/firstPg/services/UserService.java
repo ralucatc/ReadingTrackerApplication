@@ -74,20 +74,26 @@ public class UserService {
         return u;
     }
 
-    public static void SearchBooks (String title) throws BookDoesNotExistException, IOException {
-        int ok=0;
+    public static void SearchBooks (String title) throws BookDoesNotExistException, FileNotFoundException {
+        int ok = 0;
         File file = new File("src/main/resources/BooksLibrary");
         FileReader reader = new FileReader(file);
         BufferedReader bufReader = new BufferedReader(reader);
         String readLine = null;
-        while((readLine = bufReader.readLine()) != null) {
+        try {
+            while ((readLine = bufReader.readLine()) != null) {
                 String[] splitData = readLine.split(",");
-                if (title.equals(splitData[0])) {
-                    ok=1;
+                // System.out.println(splitData[0]);
+                String t = splitData[0];
+                if (title.equals(t)) {
+                    ok = 1;
                 }
-        }
-        if(ok==0)
-            throw new BookDoesNotExistException(title);
+            }
+            if (ok == 0){
+                throw new BookDoesNotExistException(title);
+            }
+        }catch(IOException ex) {}
+
     }
 
     private static void persistUsers() {
