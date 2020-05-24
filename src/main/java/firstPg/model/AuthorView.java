@@ -21,6 +21,7 @@ public class AuthorView extends JFrame {
     private JButton btnEdit;
     private JButton btnDelete;
     private JButton btnList;
+    private JButton  btnLogout;
     private User user;
 
     public AuthorView(User user)
@@ -154,7 +155,24 @@ public class AuthorView extends JFrame {
             }
         });
 
-
+        btnLogout = new JButton("Logout");
+        btnLogout.setBounds(520, 360, 150, 25);; // 700, 450
+        contentPane.add(btnLogout);
+        btnLogout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int a = JOptionPane.showConfirmDialog(null, "Are you sure?", "Logout",
+                        JOptionPane.YES_NO_CANCEL_OPTION);
+                if (a == JOptionPane.YES_OPTION) {
+                    dispose();
+                    firstPgView view = new firstPgView();
+                    view.setVisible(true);
+                }else {
+                    dispose();
+                    ReaderView view = new ReaderView(user);
+                    view.setVisible(true);
+                }
+            }
+        });
 
     }
 

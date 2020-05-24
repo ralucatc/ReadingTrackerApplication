@@ -17,6 +17,7 @@ public class AdminView extends JFrame {
     private JButton btnAdd;
     private JButton btnEditBook;
     private JButton btnDeleteBook;
+    private JButton  btnLogout;
 
     public AdminView()
     {
@@ -98,5 +99,25 @@ public class AdminView extends JFrame {
         btnDeleteBook = new JButton("DELETE");
         btnDeleteBook.setBounds(180, 210, 350, 25);
         contentPane.add(btnDeleteBook);
+
+        btnLogout = new JButton("Logout");
+        btnLogout.setBounds(520, 360, 150, 25);; // 700, 450
+        contentPane.add(btnLogout);
+        btnLogout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int a = JOptionPane.showConfirmDialog(null, "Are you sure?", "Logout",
+                        JOptionPane.YES_NO_CANCEL_OPTION);
+                if (a == JOptionPane.YES_OPTION) {
+                    dispose();
+                    firstPgView view = new firstPgView();
+                    view.setVisible(true);
+                }else {
+                    dispose();
+                    ReaderView view = new ReaderView(user);
+                    view.setVisible(true);
+                }
+            }
+        });
+
     }
 }
