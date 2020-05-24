@@ -4,6 +4,7 @@ import firstPg.firstPgView;
 import firstPg.services.AddBookCurrentlyLibrary;
 import firstPg.services.AddBookWantLibrary;
 import firstPg.services.BooksList;
+import firstPg.services.TrackingProgress;
 
 
 import javax.swing.*;
@@ -135,6 +136,19 @@ public class ReaderView extends JFrame {
         btnProgress = new JButton("TRACKING PAGE");
         btnProgress.setBounds(270, 240, 350, 25);
         contentPane.add(btnProgress);
+
+        btnProgress.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new TrackingProgress();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
 
     }
 
