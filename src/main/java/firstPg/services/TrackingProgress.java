@@ -6,6 +6,7 @@ import firstPg.model.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -56,8 +57,6 @@ public class TrackingProgress extends JFrame {
                 if (userID.trim().equals(String.valueOf(user.getID()))) {
                     Books book = new Books();
                     book.setTitle(splitData[0]);
-                    splitData[1]="Progress";
-                    book.setProgress(splitData[1]);
                     booksList.add(book);
                 }
             }
@@ -65,6 +64,7 @@ public class TrackingProgress extends JFrame {
 
         tableModel.setList(booksList);
         table.setModel(tableModel);
+
 
         Color pink=new Color(255, 230, 235, 255);
         Color pink_d=new Color(255, 182, 199, 211); // 255,182,193
