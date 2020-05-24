@@ -33,6 +33,8 @@ public class BooksListTableModel2 extends AbstractTableModel {
         switch (columnIndex) {
             case 0:
                 return list.get(rowIndex).getTitle();
+            case 1:
+                return list.get(rowIndex).getProgress();
             default:
                 return null;
         }

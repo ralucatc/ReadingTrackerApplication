@@ -6,6 +6,11 @@ public class Books extends Object {
     private String title;
     private String publicationYear;
     private String description;
+    private String progress;
+
+    public String getProgress() { return progress; }
+
+    public void setProgress(String progress) { this.progress = progress; }
 
     public String getAuthor() {
         return author;
