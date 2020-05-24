@@ -1,10 +1,7 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
-import firstPg.services.AddBookCurrentlyLibrary;
-import firstPg.services.AddBookWantLibrary;
-import firstPg.services.BooksList;
-import firstPg.services.TrackingProgress;
+import firstPg.services.*;
 
 
 import javax.swing.*;
@@ -21,10 +18,12 @@ public class ReaderView extends JFrame {
     private JButton btnWantLib;
     private JButton btnCurrentLib;
     private JButton btnProgress;
+    private User user;
 
-    public ReaderView()
+    public ReaderView(User user)
     {
-        setTitle("MyApp: READER PAGE");
+        this.user = user;
+        setTitle("READER PAGE");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(700, 450);
@@ -66,12 +65,12 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    new BooksList();
+                    BooksList books = new BooksList(user);
+                    books.setVisible(true);
+                    dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                setVisible(true);
-                dispose();
             }
         });
 
@@ -91,12 +90,12 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    new AddBookWantLibrary();
+                    AddBookWantLibrary addW = new AddBookWantLibrary(user);
+                    addW.setVisible(true);
+                    dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                setVisible(true);
-                dispose();
             }
         });
 
@@ -116,12 +115,12 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    new AddBookCurrentlyLibrary();
+                    AddBookCurrentlyLibrary addC = new AddBookCurrentlyLibrary(user);
+                    addC.setVisible(true);
+                    dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                setVisible(true);
-                dispose();
             }
         });
 
@@ -141,12 +140,12 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    new TrackingProgress();
+                  TrackingProgress tr =  new TrackingProgress(user);
+                    tr.setVisible(true);
+                    dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                setVisible(true);
-                dispose();
             }
         });
 

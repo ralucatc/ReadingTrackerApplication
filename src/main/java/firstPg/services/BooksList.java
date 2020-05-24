@@ -3,6 +3,7 @@ package firstPg.services;
 import firstPg.exceptions.BookDoesNotExistException;
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
+import firstPg.model.User;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class BooksList extends JFrame {
     private String Title, Author, Year, Summary;
     static String summery;
     private String[] splitData;
+    private User user;
 
     public boolean checkExistanceOfBooks (String title)
     {
@@ -57,7 +59,7 @@ public class BooksList extends JFrame {
             }
         } catch(IOException ex) {}
 
-        summery = ( Title + " , ") + ( Author + " , ") + ( Year + " , ") + ( Summary + " , ") ;
+        summery = ( Title + ",") + ( Author + ",") + ( Year + ",") + ( Summary + ",") + user.getID();
 
         String Data = summery;
 
@@ -93,7 +95,7 @@ public class BooksList extends JFrame {
             }
         } catch(IOException ex) {}
 
-        summery = ( Title + " , ") + ( Author + " , ") + ( Year + " , ") + ( Summary + " , ") ;
+        summery = ( Title + ",") + ( Author + ",") + ( Year + ",") + ( Summary + ",") + user.getID();
 
         String Data = summery;
 
@@ -107,8 +109,9 @@ public class BooksList extends JFrame {
         }
     }
 
-    public BooksList() throws FileNotFoundException {
+    public BooksList(User user) throws FileNotFoundException {
 
+        this.user = user ;
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -121,7 +124,7 @@ public class BooksList extends JFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                ReaderView view = new ReaderView();
+                ReaderView view = new ReaderView(user);
                 view.setVisible(true);
                 dispose();
             }
@@ -164,7 +167,6 @@ public class BooksList extends JFrame {
         scroll.getViewport().setBackground(pink_d);
         frame.add(scroll);
 
-        // TO DO - resolve the problem in the title, with that space
         // TO DO - add anew panel or smth, the information is not visible
 
         JLabel lblWriteBook = new JLabel("Write the name of the book you want to add in your personal library");
@@ -189,6 +191,7 @@ public class BooksList extends JFrame {
 
 
         btnAddBook  = new JButton("Add Book");
+
         btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (Objects.equals("Want to read Library", String.valueOf(cmbLibrary.getSelectedItem()))) {

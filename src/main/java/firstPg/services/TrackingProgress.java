@@ -2,6 +2,7 @@ package firstPg.services;
 
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
+import firstPg.model.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrackingProgress extends JFrame {
-    public TrackingProgress() throws FileNotFoundException {
+
+    private User user;
+
+    public TrackingProgress(User user) throws FileNotFoundException {
+        this.user=user;
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -25,7 +30,7 @@ public class TrackingProgress extends JFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                ReaderView view = new ReaderView();
+                ReaderView view = new ReaderView(user);
                 view.setVisible(true);
                 dispose();
             }
