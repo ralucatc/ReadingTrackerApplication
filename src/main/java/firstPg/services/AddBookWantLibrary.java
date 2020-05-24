@@ -2,6 +2,7 @@ package firstPg.services;
 ;
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
+import firstPg.model.User;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -13,9 +14,12 @@ import java.util.List;
 import javax.swing.*;
 
 public class AddBookWantLibrary extends JFrame {
+    
+    private User user;
 
-    public AddBookWantLibrary() throws FileNotFoundException {
+    public AddBookWantLibrary(User user) throws FileNotFoundException {
 
+        this.user=user;
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -28,7 +32,7 @@ public class AddBookWantLibrary extends JFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                ReaderView view = new ReaderView();
+                ReaderView view = new ReaderView(user);
                 view.setVisible(true);
                 dispose();
             }
@@ -49,12 +53,15 @@ public class AddBookWantLibrary extends JFrame {
         try {
             while((readLine = bufReader.readLine()) != null) {
                 String[] splitData = readLine.split(",");
-                Books book = new Books();
-                book.setTitle(splitData[0]);
-                book.setAuthor(splitData[1]);
-                book.setPublicationYear(splitData[2]);
-                book.setDescription(splitData[3]);
-                booksList.add(book);
+                String userID = splitData[4];
+                if (userID.trim().equals(String.valueOf(user.getID()))) {
+                    Books book = new Books();
+                    book.setTitle(splitData[0]);
+                    book.setAuthor(splitData[1]);
+                    book.setPublicationYear(splitData[2]);
+                    book.setDescription(splitData[3]);
+                    booksList.add(book);
+                }
             }
         } catch(IOException ex) {}
 

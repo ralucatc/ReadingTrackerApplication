@@ -111,11 +111,11 @@ public class firstPgView extends JFrame{
                         JOptionPane.showMessageDialog(null, "Successfully!", "Sign in", JOptionPane.INFORMATION_MESSAGE);
                         if (UserService.checkIfReader((String) cmbRole.getSelectedItem()))// reader condition
                         {
-                            ReaderView readerLog = new ReaderView();
+                            ReaderView readerLog = new ReaderView(user);
                             readerLog.setVisible(true);
                             dispose();
-                        }
-                        if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
+                        } else
+                        //if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
                         {
                             AuthorView authorLog = new AuthorView(user);
                             authorLog.setVisible(true);
