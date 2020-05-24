@@ -18,6 +18,7 @@ public class ReaderView extends JFrame {
     private JButton btnWantLib;
     private JButton btnCurrentLib;
     private JButton btnProgress;
+    private JButton btnLogout;
     private User user;
 
     public ReaderView(User user)
@@ -144,6 +145,25 @@ public class ReaderView extends JFrame {
                 pr.setVisible(true);
                 dispose();
 
+            }
+        });
+
+        btnLogout = new JButton("Logout");
+        btnLogout.setBounds(520, 360, 150, 25);; // 700, 450
+        contentPane.add(btnLogout);
+        btnLogout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int a = JOptionPane.showConfirmDialog(null, "Are you sure?", "Logout",
+                        JOptionPane.YES_NO_CANCEL_OPTION);
+                if (a == JOptionPane.YES_OPTION) {
+                    dispose();
+                    firstPgView view = new firstPgView();
+                    view.setVisible(true);
+                }else {
+                    dispose();
+                    ReaderView view = new ReaderView(user);
+                    view.setVisible(true);
+                }
             }
         });
 
