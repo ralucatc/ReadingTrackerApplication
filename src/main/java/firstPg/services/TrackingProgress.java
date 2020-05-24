@@ -1,8 +1,9 @@
 package firstPg.services;
-;
+
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -10,12 +11,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
-
-public class AddBookCurrentlyLibrary extends JFrame {
-
-    public AddBookCurrentlyLibrary() throws FileNotFoundException {
-
+public class TrackingProgress extends JFrame {
+    public TrackingProgress() throws FileNotFoundException {
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -38,7 +35,7 @@ public class AddBookCurrentlyLibrary extends JFrame {
 
         String readLine = null;
 
-        BooksListTableModel tableModel = new BooksListTableModel();
+        BooksListTableModel2 tableModel = new BooksListTableModel2();
         File file = new File("src/main/resources/CurrentlyReadingLibrary");
 
         FileReader reader = new FileReader(file);
@@ -51,9 +48,6 @@ public class AddBookCurrentlyLibrary extends JFrame {
                 String[] splitData = readLine.split(",");
                 Books book = new Books();
                 book.setTitle(splitData[0]);
-                book.setAuthor(splitData[1]);
-                book.setPublicationYear(splitData[2]);
-                book.setDescription(splitData[3]);
                 booksList.add(book);
             }
         } catch(IOException ex) {}
@@ -73,5 +67,3 @@ public class AddBookCurrentlyLibrary extends JFrame {
 
     }
 }
-
-

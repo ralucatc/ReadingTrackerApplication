@@ -1,5 +1,6 @@
 package firstPg.services;
 
+import firstPg.exceptions.BookDoesNotExistException;
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
 
@@ -20,7 +21,91 @@ public class BooksList extends JFrame {
     private JTextField txtAddBook;
     private JButton btnAddBook;
     private JComboBox<String> cmbLibrary;
-    private String Title;
+    private String Title, Author, Year, Summary;
+    static String summery;
+    private String[] splitData;
+
+    public boolean checkExistanceOfBooks (String title)
+    {
+        try {
+        UserService.SearchBooks(title);
+            return true;
+        } catch (BookDoesNotExistException | FileNotFoundException e) {
+            return false;
+        }
+    }
+
+    public void addBooksInTxtFileWantLibrary(String title) throws FileNotFoundException {
+        Title = ("");
+        Author = ("");
+        Year = ("");
+        Summary = ("");
+
+        File file = new File("src/main/resources/BooksLibrary");
+        FileReader reader = new FileReader(file);
+        BufferedReader bufReader = new BufferedReader(reader);
+        String readLine = null;
+        try {
+            while((readLine = bufReader.readLine()) != null) {
+                splitData = readLine.split(",");
+                if (title.equals(splitData[0])){
+                    Title=splitData[0];
+                    Author=splitData[1];
+                    Year=splitData[2];
+                    Summary=splitData[3];
+                }
+            }
+        } catch(IOException ex) {}
+
+        summery = ( Title + " , ") + ( Author + " , ") + ( Year + " , ") + ( Summary + " , ") ;
+
+        String Data = summery;
+
+        try {
+            BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/WantToReadLibrary"), true));
+            reader1.write(Data);
+            reader1.newLine();
+            reader1.close();
+        } catch (IOException E) {
+            System.out.println("Error is " + E);
+        }
+    }
+
+    public void addBooksInTxtFileCurrentlyLibrary(String title) throws FileNotFoundException {
+        Title = ("");
+        Author = ("");
+        Year = ("");
+        Summary = ("");
+
+        File file = new File("src/main/resources/BooksLibrary");
+        FileReader reader = new FileReader(file);
+        BufferedReader bufReader = new BufferedReader(reader);
+        String readLine = null;
+        try {
+            while((readLine = bufReader.readLine()) != null) {
+                splitData = readLine.split(",");
+                if (title.equals(splitData[0])){
+                    Title=splitData[0];
+                    Author=splitData[1];
+                    Year=splitData[2];
+                    Summary=splitData[3];
+                }
+            }
+        } catch(IOException ex) {}
+
+        summery = ( Title + " , ") + ( Author + " , ") + ( Year + " , ") + ( Summary + " , ") ;
+
+        String Data = summery;
+
+        try {
+            BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/CurrentlyReadingLibrary"), true));
+            reader1.write(Data);
+            reader1.newLine();
+            reader1.close();
+        } catch (IOException E) {
+            System.out.println("Error is " + E);
+        }
+    }
 
     public BooksList() throws FileNotFoundException {
 
@@ -79,6 +164,18 @@ public class BooksList extends JFrame {
         scroll.getViewport().setBackground(pink_d);
         frame.add(scroll);
 
+        // TO DO - resolve the problem in the title, with that space
+        // TO DO - add anew panel or smth, the information is not visible
+
+        JLabel lblWriteBook = new JLabel("Write the name of the book you want to add in your personal library");
+        JLabel lblWriteBookPROBLEM = new JLabel("ADD A SPACE AFTER THE NAME OF THE BOOK!");
+
+        lblWriteBook.setBounds(10, 390, 500, 25);
+        lblWriteBookPROBLEM.setBounds(10, 415, 500, 25);
+
+       scroll.add(lblWriteBook);
+       scroll.add(lblWriteBookPROBLEM);
+
        txtAddBook = new JTextField();
        txtAddBook.setBounds(10, 450, 220, 25);
        txtAddBook.setBackground(Color.white);
@@ -90,20 +187,33 @@ public class BooksList extends JFrame {
         cmbLibrary.setBackground(Color.white);
         scroll.add(cmbLibrary);
 
-        btnAddBook  = new JButton("Add Book");
-      /* btnAddBook.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               if (Objects.equals(role, .getRole())) {
-                   AddBookWantLibrary add1= new AddBookWantLibrary();
-                   add1.setVisible(true);
-               }else
-               {
-                   AddBookCurrentlyLibrary add2 = new AddBookCurrentlyLibrary();
-                   add2.setVisible(true);
-               }
 
+        btnAddBook  = new JButton("Add Book");
+        btnAddBook.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (Objects.equals("Want to read Library", String.valueOf(cmbLibrary.getSelectedItem()))) {
+                        if (checkExistanceOfBooks(txtAddBook.getText())) {
+                                try {
+                                    addBooksInTxtFileWantLibrary(txtAddBook.getText());
+                                } catch (FileNotFoundException fileNotFoundException) {
+                                    fileNotFoundException.printStackTrace();
+                                }
+                                JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                            }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
+
+                    } else {
+                    if (checkExistanceOfBooks(txtAddBook.getText())) {
+                        try {
+                            addBooksInTxtFileCurrentlyLibrary( txtAddBook.getText());
+                        } catch (FileNotFoundException fileNotFoundException) {
+                            fileNotFoundException.printStackTrace();
+                        }
+                        JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                    }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
+                }
             }
-        });*/
+
+        });
         btnAddBook.setBounds(270, 475, 170, 25);
         btnAddBook.setBackground(Color.white);
         scroll.add(btnAddBook);

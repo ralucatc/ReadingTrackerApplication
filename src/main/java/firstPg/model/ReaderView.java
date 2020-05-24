@@ -1,7 +1,10 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
+import firstPg.services.AddBookCurrentlyLibrary;
+import firstPg.services.AddBookWantLibrary;
 import firstPg.services.BooksList;
+import firstPg.services.TrackingProgress;
 
 
 import javax.swing.*;
@@ -84,6 +87,18 @@ public class ReaderView extends JFrame {
         btnWantLib.setBounds(270, 180, 350, 25);
         contentPane.add(btnWantLib);
 
+        btnWantLib.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new AddBookWantLibrary();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
 
         JLabel lblCurrent = new JLabel("Currently reading library:");
         lblCurrent.setBackground(Color.BLACK);
@@ -97,6 +112,19 @@ public class ReaderView extends JFrame {
         btnCurrentLib.setBounds(270, 210, 350, 25);
         contentPane.add(btnCurrentLib);
 
+        btnCurrentLib.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new AddBookCurrentlyLibrary();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
+
         JLabel lblProgress = new JLabel("Tracking progress page:");
         lblProgress.setBackground(Color.BLACK);
         lblProgress.setForeground(Color.BLACK);
@@ -108,6 +136,19 @@ public class ReaderView extends JFrame {
         btnProgress = new JButton("TRACKING PAGE");
         btnProgress.setBounds(270, 240, 350, 25);
         contentPane.add(btnProgress);
+
+        btnProgress.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new TrackingProgress();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
 
     }
 
