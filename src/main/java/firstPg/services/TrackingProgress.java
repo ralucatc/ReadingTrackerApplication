@@ -51,9 +51,12 @@ public class TrackingProgress extends JFrame {
         try {
             while((readLine = bufReader.readLine()) != null) {
                 String[] splitData = readLine.split(",");
-                Books book = new Books();
-                book.setTitle(splitData[0]);
-                booksList.add(book);
+                String userID = splitData[4];
+                if (userID.trim().equals(String.valueOf(user.getID()))) {
+                    Books book = new Books();
+                    book.setTitle(splitData[0]);
+                    booksList.add(book);
+                }
             }
         } catch(IOException ex) {}
 
