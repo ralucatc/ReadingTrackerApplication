@@ -1,15 +1,12 @@
 package firstPg.model;
-import firstPg.controller.firstPgControllers;
+
 import firstPg.firstPgView;
 import firstPg.services.AddBook;
 import firstPg.services.EditBook;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 

@@ -258,4 +258,34 @@
   "password" : "c��fru�Q^8~d�\fx�w)�\fK�T�\u0000\u0018�\u000E}�X�6\u000E�\u001E�ߑ�ԭ�#�\f�\n\u0002c�!�?f�|7M�EW\u0018",
   "role" : "Reader",
   "id" : 51
+}, {
+  "username" : "Claudia",
+  "password" : "e0S�%�J�6�f���,D\u0012zxb>��3R^\rr4�vy�c�\rLRҽ;�ʯ/_\u00051�F�C%\u000B\bg�IZW��",
+  "role" : "Reader",
+  "id" : 52
+}, {
+  "username" : "Claudiu",
+  "password" : "��3��7�����E��e(�������՚�����縄���H�V��\u001E�[���>�#\u000E������C�$",
+  "role" : "Reader",
+  "id" : 53
+}, {
+  "username" : "Claudiu2",
+  "password" : "��zȉ�y�����W;�X�y s�{�}�\u0017\u001C^W�\u001Anjh\fi>��9\u0005���\u0007�4�Yfx\u0010��qTxѻ��\\",
+  "role" : "Author",
+  "id" : 54
+}, {
+  "username" : "Claudia2",
+  "password" : "-�b}���YU��,%��@\u001DfA{:��B[z��?c�.V�I(H�sږI7yܩ�~�e�Z҆�(���T��",
+  "role" : "Reader",
+  "id" : 55
+}, {
+  "username" : "Ionel",
+  "password" : "�us\u0018G�.\u0001z�Gh������^��=�g\u0002\u001B�J!����\u0012��qfƫ��eDZWS��3���s��aȠ����",
+  "role" : "Reader",
+  "id" : 56
+}, {
+  "username" : "Deni",
+  "password" : "�\b��\u0015@�\u0016��XM�?<��\u001F�K�g)�v��\u0015�\u0002�`wG�� �Wji��@`*�&��V�\u000E\u0017&k�\u0011�7�\u0003H",
+  "role" : "Reader",
+  "id" : 57
 } ]

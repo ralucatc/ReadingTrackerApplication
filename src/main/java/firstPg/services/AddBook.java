@@ -1,6 +1,5 @@
 package firstPg.services;
 
-import firstPg.changePassword;
 import firstPg.model.User;
 
 import javax.swing.*;

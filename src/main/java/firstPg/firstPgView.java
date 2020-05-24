@@ -5,9 +5,6 @@ import firstPg.model.AdminView;
 import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
 import firstPg.model.User;
-import firstPg.services.AddBook;
-import firstPg.services.DeleteBook;
-import firstPg.services.EditBook;
 import firstPg.services.UserService;
 
 import javax.swing.*;
@@ -30,7 +27,6 @@ public class firstPgView extends JFrame{
     public firstPgView() {
         controller = new firstPgControllers(this);
         controllerRegistration = new firstPgControllers(this);
-        //TODO implementare - de facut sa mearga mai bine si corect
 
         setTitle("Reading Tracker Application");
         setResizable(false);
@@ -86,7 +82,7 @@ public class firstPgView extends JFrame{
         cmbRole.setBounds(380, 210, 150, 25);
         contentPane.add(cmbRole);
 
-        JButton ForgotCredentials  = new JButton("Forgot Credentials?");
+       /* JButton ForgotCredentials  = new JButton("Forgot Credentials?");
         ForgotCredentials.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 changePassword a = new changePassword();
@@ -94,7 +90,7 @@ public class firstPgView extends JFrame{
         });
         ForgotCredentials .setBounds(380, 240, 150, 25);
         contentPane.add(ForgotCredentials);
-
+        */
 
         btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener(){
@@ -128,7 +124,7 @@ public class firstPgView extends JFrame{
             }
         });
 
-        btnLogin.setBounds(200, 270, 120, 30);
+        btnLogin.setBounds(200, 280, 120, 30);
         contentPane.add(btnLogin);
 
         btnRegister = new JButton("Register");
@@ -142,7 +138,7 @@ public class firstPgView extends JFrame{
                 }
             }
         });
-        btnRegister.setBounds(340, 270, 120, 30);
+        btnRegister.setBounds(340, 280, 120, 30);
         contentPane.add(btnRegister);
     }
 

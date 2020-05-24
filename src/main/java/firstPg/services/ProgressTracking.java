@@ -1,12 +1,15 @@
 package firstPg.services;
 
 import firstPg.exceptions.BookDoesNotExistException;
+import firstPg.model.ReaderView;
 import firstPg.model.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 
 public class ProgressTracking extends JFrame {
@@ -33,6 +36,15 @@ public class ProgressTracking extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(500, 300);
         setLocationRelativeTo(null);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                ReaderView view = new ReaderView(user);
+                view.setVisible(true);
+                dispose();
+            }
+        });
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);

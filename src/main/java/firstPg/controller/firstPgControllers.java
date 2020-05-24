@@ -1,6 +1,5 @@
 package firstPg.controller;
 
-import firstPg.exceptions.BookDoesNotExistException;
 import firstPg.exceptions.EmptyFieldException;
 import firstPg.firstPgView;
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;

@@ -1,17 +1,9 @@
 package firstPg.services;
 
 import firstPg.model.Books;
-import firstPg.model.ReaderView;
-import firstPg.model.User;
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.*;
 
