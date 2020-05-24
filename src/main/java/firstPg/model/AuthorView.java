@@ -107,7 +107,7 @@ public class AuthorView extends JFrame {
         btnDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DeleteBook delete = new DeleteBook();
+                DeleteBook delete = new DeleteBook(user);
                 delete.setVisible(true);
             }
         });

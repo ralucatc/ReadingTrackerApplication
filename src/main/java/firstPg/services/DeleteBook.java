@@ -1,6 +1,7 @@
 package firstPg.services;
 
 import firstPg.model.Books;
+import firstPg.model.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,8 +17,10 @@ public class DeleteBook extends JFrame {
 
     private JTextField bookTitle;
     private JButton btnDelete;
+    private User user;
 
-    public DeleteBook() {
+    public DeleteBook(User user) {
+        this.user = user;
         setTitle("Delete a book");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -62,22 +65,26 @@ public class DeleteBook extends JFrame {
                         FileReader reader = new FileReader(file);
                         BufferedReader bufReader = new BufferedReader(reader);
                         String readLine;
+                        boolean found = false;
                         while ((readLine = bufReader.readLine()) != null) {
                             String[] splitData = readLine.split(",");
-                            if (splitData[0].trim().equals(bookTitle.getText())) {
-                                JOptionPane.showMessageDialog(null, "The book is now deleted.");
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Couldn't find the book. Try again.");
+                            String userID = splitData[4];
+                            if (userID.trim().equals(String.valueOf(user.getID()))) {
+                                if (splitData[0].trim().equals(bookTitle.getText())) {
+                                    found = true;
+                                }
                             }
-                            System.out.println(splitData[0]);
-                            System.out.println(bookTitle.getText());
                         }
-                    } catch (Exception e){
-                            e.printStackTrace();
+                        if (!found) {
+                            JOptionPane.showMessageDialog(null, "Couldn't find the book. Try again.");
+                        }
+                            JOptionPane.showMessageDialog(null, "The book is now deleted.");
+
+                    } catch(Exception e){
+                        e.printStackTrace();
+                        }
                     }
                 }
-            }
         });
     }
-
 }
