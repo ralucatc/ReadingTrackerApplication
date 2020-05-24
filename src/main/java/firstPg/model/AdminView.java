@@ -1,7 +1,8 @@
 package firstPg.model;
-
 import firstPg.firstPgView;
 import firstPg.services.AddBook;
+import firstPg.services.DeleteAdmin;
+
 import firstPg.services.EditBook;
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class AdminView extends JFrame {
     public AdminView()
     {
         User user = new User("admin", "admin", "", 1000);
-        setTitle("MyApp: ADMIN PAGE");
+        setTitle("ADMIN PAGE");
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(700, 450);
@@ -42,7 +43,7 @@ public class AdminView extends JFrame {
         JLabel mainTitle = new JLabel("Welcome, admin! ");
         mainTitle.setBounds(50, 50, 600, 60);
         mainTitle.setForeground(Color.BLACK);
-        mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        mainTitle.setFont(new Font("Lucida Calligraphy", Font.PLAIN, 46));
         contentPane.add(mainTitle);
 
         JLabel lblAdd = new JLabel("Add a new book:");
@@ -65,31 +66,12 @@ public class AdminView extends JFrame {
             }
         });
 
-        JLabel lblEdit = new JLabel("Edit a book:");
-        lblEdit.setBackground(Color.BLACK);
-        lblEdit.setForeground(Color.BLACK);
-        lblEdit.setFont(new Font("Roboto", Font.PLAIN, 15));
-        lblEdit.setBounds(20, 180, 120, 25);
-        lblEdit.setBackground(cl);
-        contentPane.add(lblEdit);
-
-        btnEditBook = new JButton("EDIT");
-        btnEditBook.setBounds(180, 180, 350, 25);
-        contentPane.add(btnEditBook);
-
-        btnEditBook.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                EditBook edit = new EditBook();
-                edit.setVisible(true);
-            }
-        });
 
         JLabel lblDelete = new JLabel("Delete a book:");
         lblDelete.setBackground(Color.BLACK);
         lblDelete.setForeground(Color.BLACK);
         lblDelete.setFont(new Font("Roboto", Font.PLAIN, 15));
-        lblDelete.setBounds(20, 210, 120, 25);
+        lblDelete.setBounds(20, 210, 210, 25);
         lblDelete.setBackground(cl);
         contentPane.add(lblDelete);
 
@@ -116,5 +98,13 @@ public class AdminView extends JFrame {
             }
         });
 
+
+        btnDeleteBook.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DeleteAdmin delete = new DeleteAdmin();
+                delete.setVisible(true);
+            }
+        });
     }
 }

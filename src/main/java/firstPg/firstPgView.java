@@ -40,9 +40,9 @@ public class firstPgView extends JFrame{
         contentPane.setBackground(c);
 
         JLabel mainTitle  = new JLabel("Reading Tracker Application");
-        mainTitle .setBounds(50, 50, 700, 60);
+        mainTitle .setBounds(7, 50, 700, 60);
         mainTitle.setForeground(Color.BLACK);
-        mainTitle.setFont(new Font("Lucida Calligraphy", Font.BOLD, 30));
+        mainTitle.setFont(new Font("Lucida Calligraphy", Font.BOLD, 40));
         contentPane.add(mainTitle);
 
         Color cl = Color.lightGray;

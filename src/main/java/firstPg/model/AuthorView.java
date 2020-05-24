@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class AuthorView extends JFrame {
 
     private JButton btnAdd;
-    private JButton btnEdit;
     private JButton btnDelete;
     private JButton btnList;
     private JButton  btnLogout;
@@ -49,7 +48,7 @@ public class AuthorView extends JFrame {
         JLabel mainTitle = new JLabel("Welcome, author! ");
         mainTitle.setBounds(50, 50, 600, 60);
         mainTitle.setForeground(Color.BLACK);
-        mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        mainTitle.setFont(new Font("Lucida Calligraphy", Font.PLAIN, 46));
         contentPane.add(mainTitle);
 
         JLabel lblAdd = new JLabel("Add your book:");
@@ -72,36 +71,16 @@ public class AuthorView extends JFrame {
             }
         });
 
-        JLabel lblEdit = new JLabel(" Edit my books:");
-        lblEdit.setBackground(Color.BLACK);
-        lblEdit.setForeground(Color.BLACK);
-        lblEdit.setFont(new Font("Roboto", Font.PLAIN, 15));
-        lblEdit.setBounds(20, 180, 210, 25);
-        lblEdit.setBackground(cl);
-        contentPane.add(lblEdit);
-
-        btnEdit = new JButton("EDIT");
-        btnEdit.setBounds(270, 180, 350, 25);
-        contentPane.add(btnEdit);
-
-        btnEdit.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                EditBook edit = new EditBook();
-                edit.setVisible(true);
-            }
-        });
-
         JLabel lblDelete = new JLabel("Delete a book:");
         lblDelete.setBackground(Color.BLACK);
         lblDelete.setForeground(Color.BLACK);
         lblDelete.setFont(new Font("Roboto", Font.PLAIN, 15));
-        lblDelete.setBounds(20, 210, 210, 25);
+        lblDelete.setBounds(20, 180, 210, 25);
         lblDelete.setBackground(cl);
         contentPane.add(lblDelete);
 
         btnDelete = new JButton("DELETE");
-        btnDelete.setBounds(270, 210, 350, 25);
+        btnDelete.setBounds(270, 180, 350, 25);
         contentPane.add(btnDelete);
 
         btnDelete.addActionListener(new ActionListener() {
@@ -116,12 +95,12 @@ public class AuthorView extends JFrame {
         lblList.setBackground(Color.BLACK);
         lblList.setForeground(Color.BLACK);
         lblList.setFont(new Font("Roboto", Font.PLAIN, 15));
-        lblList.setBounds(20, 240, 210, 25);
+        lblList.setBounds(20, 210, 210, 25);
         lblList.setBackground(cl);
         contentPane.add(lblList);
 
         btnList = new JButton("BOOKS LIST");
-        btnList.setBounds(270, 240, 350, 25);
+        btnList.setBounds(270, 210, 350, 25);
         contentPane.add(btnList);
 
         btnList.addActionListener(new ActionListener(){
