@@ -65,8 +65,8 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    BooksList books = new BooksList(user);
-                    books.setVisible(true);
+                     new BooksList(user);
+                     setVisible(true);
                     dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -90,8 +90,8 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    AddBookWantLibrary addW = new AddBookWantLibrary(user);
-                    addW.setVisible(true);
+                     new AddBookWantLibrary(user);
+                    setVisible(true);
                     dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -115,8 +115,8 @@ public class ReaderView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    AddBookCurrentlyLibrary addC = new AddBookCurrentlyLibrary(user);
-                    addC.setVisible(true);
+                     new AddBookCurrentlyLibrary(user);
+                    setVisible(true);
                     dispose();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -139,13 +139,11 @@ public class ReaderView extends JFrame {
         btnProgress.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                try {
-                  TrackingProgress tr =  new TrackingProgress(user);
-                    tr.setVisible(true);
-                    dispose();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+
+                ProgressTracking pr= new ProgressTracking(user);
+                pr.setVisible(true);
+                dispose();
+
             }
         });
 

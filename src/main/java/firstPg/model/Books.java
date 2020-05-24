@@ -1,11 +1,28 @@
 package firstPg.model;
 
+import javax.swing.*;
+
 public class Books extends Object {
 
     private String author;
     private String title;
     private String publicationYear;
     private String description;
+    private String progress;
+
+    public JButton getProg() {
+        return Prog;
+    }
+
+    public void setProg(JButton prog) {
+        Prog = prog;
+    }
+
+    private JButton Prog;
+
+    public String getProgress() { return progress; }
+
+    public void setProgress(String progress) { this.progress = progress; }
 
     public String getAuthor() {
         return author;

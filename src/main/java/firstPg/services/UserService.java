@@ -19,10 +19,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class UserService {
 
@@ -94,6 +93,27 @@ public class UserService {
             }
         }catch(IOException ex) {}
 
+    }
+
+    public static void SearchBook (String title) throws BookDoesNotExistException, FileNotFoundException {
+        int ok = 0;
+        File file = new File("src/main/resources/CurrentlyReadingLibrary");
+        FileReader reader = new FileReader(file);
+        BufferedReader bufReader = new BufferedReader(reader);
+        String readLine = null;
+        try {
+            while ((readLine = bufReader.readLine()) != null) {
+                String[] splitData = readLine.split(",");
+                String t = splitData[0];
+                if (title.equals(t)) {
+                    ok = 1;
+                }
+            }
+            if (ok == 0){
+
+                throw new BookDoesNotExistException(title);
+            }
+        }catch(IOException ex) {}
     }
 
     private static void persistUsers() {

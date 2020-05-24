@@ -37,6 +37,7 @@ public class BooksList extends JFrame {
         }
     }
 
+
     public void addBooksInTxtFileWantLibrary(String title) throws FileNotFoundException {
         Title = ("");
         Author = ("");
@@ -170,13 +171,8 @@ public class BooksList extends JFrame {
         // TO DO - add anew panel or smth, the information is not visible
 
         JLabel lblWriteBook = new JLabel("Write the name of the book you want to add in your personal library");
-        JLabel lblWriteBookPROBLEM = new JLabel("ADD A SPACE AFTER THE NAME OF THE BOOK!");
-
-        lblWriteBook.setBounds(10, 390, 500, 25);
-        lblWriteBookPROBLEM.setBounds(10, 415, 500, 25);
-
-       scroll.add(lblWriteBook);
-       scroll.add(lblWriteBookPROBLEM);
+        lblWriteBook.setBounds(10, 415, 500, 25);
+        scroll.add(lblWriteBook);
 
        txtAddBook = new JTextField();
        txtAddBook.setBounds(10, 450, 220, 25);
