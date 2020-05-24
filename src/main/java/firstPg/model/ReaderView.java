@@ -1,6 +1,7 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
+import firstPg.services.AddBookWantLibrary;
 import firstPg.services.BooksList;
 
 
@@ -84,6 +85,18 @@ public class ReaderView extends JFrame {
         btnWantLib.setBounds(270, 180, 350, 25);
         contentPane.add(btnWantLib);
 
+        btnWantLib.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new AddBookWantLibrary();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
 
         JLabel lblCurrent = new JLabel("Currently reading library:");
         lblCurrent.setBackground(Color.BLACK);
