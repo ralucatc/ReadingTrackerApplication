@@ -1,6 +1,7 @@
 package firstPg.controller;
 
 import firstPg.exceptions.BookDoesNotExistException;
+import firstPg.exceptions.EmptyFieldException;
 import firstPg.firstPgView;
 import firstPg.exceptions.IncorrectUsernameOrPasswordException;
 import firstPg.model.User;
@@ -25,9 +26,10 @@ public class firstPgControllers {
         try {
             UserService.addUser(username, password, role);
             return true;
-        } catch (UsernameAlreadyExistsException e) {
+        } catch (EmptyFieldException | UsernameAlreadyExistsException e) {
             return false;
         }
+
     }
 
 

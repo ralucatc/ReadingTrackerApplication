@@ -138,7 +138,7 @@ public class firstPgView extends JFrame{
                 if (controllerRegistration.checkAvailabilityRegistration(txtUsername.getText(), new String(txtPassword.getPassword()), String.valueOf(cmbRole.getSelectedItem()))) {
                     JOptionPane.showMessageDialog(null, "User successfully added", "Adding user", JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "User already added", "Adding user", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "User already added or empty password field", "Adding user", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
