@@ -1,6 +1,7 @@
 package firstPg.model;
 
 import firstPg.firstPgView;
+import firstPg.services.AddBookCurrentlyLibrary;
 import firstPg.services.AddBookWantLibrary;
 import firstPg.services.BooksList;
 
@@ -109,6 +110,19 @@ public class ReaderView extends JFrame {
         btnCurrentLib = new JButton("SEE THE LIBRARY");
         btnCurrentLib.setBounds(270, 210, 350, 25);
         contentPane.add(btnCurrentLib);
+
+        btnCurrentLib.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new AddBookCurrentlyLibrary();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                setVisible(true);
+                dispose();
+            }
+        });
 
         JLabel lblProgress = new JLabel("Tracking progress page:");
         lblProgress.setBackground(Color.BLACK);

@@ -191,33 +191,28 @@ public class BooksList extends JFrame {
         btnAddBook  = new JButton("Add Book");
         btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int ok=0;
                 if (Objects.equals("Want to read Library", String.valueOf(cmbLibrary.getSelectedItem()))) {
-                    if (checkExistanceOfBooks(txtAddBook.getText())){
-                        try {
-                            addBooksInTxtFileWantLibrary( txtAddBook.getText());
-                        } catch (FileNotFoundException fileNotFoundException) {
-                            fileNotFoundException.printStackTrace();
-                        }
-                        JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                        if (checkExistanceOfBooks(txtAddBook.getText())) {
+                                try {
+                                    addBooksInTxtFileWantLibrary(txtAddBook.getText());
+                                } catch (FileNotFoundException fileNotFoundException) {
+                                    fileNotFoundException.printStackTrace();
+                                }
+                                JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                            }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
+
                     } else {
+                    if (checkExistanceOfBooks(txtAddBook.getText())) {
                         try {
                             addBooksInTxtFileCurrentlyLibrary( txtAddBook.getText());
                         } catch (FileNotFoundException fileNotFoundException) {
                             fileNotFoundException.printStackTrace();
                         }
-                        JOptionPane.showMessageDialog(null, "Book does not exist", "Adding book", JOptionPane.ERROR_MESSAGE);
-                    }
-               }else
-               {
-                   if (checkExistanceOfBooks(txtAddBook.getText())){
-                       JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
-                   } else {
-                       JOptionPane.showMessageDialog(null, "Book does not exist", "Adding book", JOptionPane.ERROR_MESSAGE);
-                   }
-               }
-
+                        JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                    }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
+                }
             }
+
         });
         btnAddBook.setBounds(270, 475, 170, 25);
         btnAddBook.setBackground(Color.white);

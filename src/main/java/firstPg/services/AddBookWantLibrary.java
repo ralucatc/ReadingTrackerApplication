@@ -19,7 +19,7 @@ public class AddBookWantLibrary extends JFrame {
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setTitle("Want to Read Library ");
+        frame.setTitle("Want to Read Library");
         frame.setResizable(false);
         frame.setSize(500, 600);
         frame.setLocationRelativeTo(null);
