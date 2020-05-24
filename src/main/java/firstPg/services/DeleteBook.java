@@ -77,9 +77,9 @@ public class DeleteBook extends JFrame {
                         }
                         if (!found) {
                             JOptionPane.showMessageDialog(null, "Couldn't find the book. Try again.");
-                        }
+                        } else {
                             JOptionPane.showMessageDialog(null, "The book is now deleted.");
-
+                        }
                     } catch(Exception e){
                         e.printStackTrace();
                         }
