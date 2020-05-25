@@ -1,7 +1,5 @@
 package firstPg.services;
 
-import firstPg.model.Books;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

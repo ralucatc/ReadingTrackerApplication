@@ -1,18 +1,11 @@
 package firstPg.services;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import firstPg.exceptions.BookDoesNotExistException;
-import firstPg.model.Books;
-import org.apache.commons.io.FileUtils;
-
-import firstPg.exceptions.IncorrectUsernameOrPasswordException;
-import firstPg.exceptions.UsernameAlreadyExistsException;
-import firstPg.exceptions.CouldNotWriteUsersException;
-
+import firstPg.exceptions.*;
 import firstPg.model.User;
 
-import javax.swing.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -44,8 +37,10 @@ public class UserService {
         return users.size();
     }
 
-    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
+    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException, EmptyFieldException {
         checkUserDoesNotAlreadyExist(username);
+        if (password.equals(""))
+            throw new EmptyFieldException();
         users.add(new User(username, encodePassword(username, password), role, getUsersCount()));
         persistUsers();
     }
@@ -57,11 +52,13 @@ public class UserService {
         }
     }
 
+
     public static User checkUser(String username, String password, String role) throws IncorrectUsernameOrPasswordException {
         int ok=0;
         User u = null;
         for (User user : users) {
-            if (Objects.equals(username, user.getUsername()) && Objects.equals(role, user.getRole()))
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(role, user.getRole())
+                     && Objects.equals(user.getPassword(),encodePassword(username, password)))
             {
                 ok=1;
                 u = user;
