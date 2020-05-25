@@ -52,30 +52,42 @@ public class DeleteAdmin extends JFrame {
         btnDelete.setBounds(270, 180, 100, 25);
         contentPane.add(btnDelete);
 
-        btnDelete.addActionListener(new ActionListener(){
+        btnDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 int a = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Select an Option...",
                         JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-                if (a == 0){
+                if (a == 0) {
                     File file = new File("src/main/resources/BooksLibrary");
                     try {
                         FileReader reader = new FileReader(file);
                         BufferedReader bufReader = new BufferedReader(reader);
                         String readLine;
+                        File tempFile = new File(file.getAbsolutePath() + ".tmp");
+                        PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
                         boolean found = false;
+
                         while ((readLine = bufReader.readLine()) != null) {
                             String[] splitData = readLine.split(",");
-                                if (splitData[0].trim().equals(bookTitle.getText())) {
-                                    found = true;
-                                }
+                            if (splitData[0].trim().equals(bookTitle.getText())) {
+                                found = true;
+                                continue;
                             }
+                            //found = false;
+                            pw.println(readLine);
+                            pw.flush();
+                        }
+                        pw.close();
+                        bufReader.close();
+                        boolean succes = file.delete();
+                        boolean succes2 = tempFile.renameTo(file);
+
                         if (!found) {
                             JOptionPane.showMessageDialog(null, "Couldn't find the book. Try again.");
                         } else {
                             JOptionPane.showMessageDialog(null, "The book is now deleted.");
                         }
-                    } catch(Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
