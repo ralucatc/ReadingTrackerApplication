@@ -58,6 +58,8 @@ public class DeleteBook extends JFrame {
                     try {
                         FileReader reader = new FileReader(file);
                         BufferedReader bufReader = new BufferedReader(reader);
+                        File tempFile = new File(file.getAbsolutePath() + ".tmp");
+                        PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
                         String readLine;
                         boolean found = false;
                         while ((readLine = bufReader.readLine()) != null) {
@@ -66,9 +68,17 @@ public class DeleteBook extends JFrame {
                             if (userID.trim().equals(String.valueOf(user.getID()))) {
                                 if (splitData[0].trim().equals(bookTitle.getText())) {
                                     found = true;
+                                    continue;
                                 }
                             }
+                            pw.println(readLine);
+                            pw.flush();
                         }
+                        pw.close();
+                        bufReader.close();
+                        boolean succes = file.delete();
+                        boolean succes2 = tempFile.renameTo(file);
+
                         if (!found) {
                             JOptionPane.showMessageDialog(null, "Couldn't find the book. Try again.");
                         } else {
