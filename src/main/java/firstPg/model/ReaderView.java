@@ -46,7 +46,7 @@ public class ReaderView extends JFrame {
         JLabel mainTitle = new JLabel("Welcome, reader! ");
         mainTitle.setBounds(50, 50, 600, 60);
         mainTitle.setForeground(Color.BLACK);
-        mainTitle.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        mainTitle.setFont(new Font("Lucida Calligraphy", Font.PLAIN, 46));
         contentPane.add(mainTitle);
 
         JLabel lblSee = new JLabel("See the list with all the books:");
