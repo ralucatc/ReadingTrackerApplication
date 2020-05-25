@@ -64,6 +64,7 @@ public class DeleteBook extends JFrame {
                         boolean found = false;
                         while ((readLine = bufReader.readLine()) != null) {
                             String[] splitData = readLine.split(",");
+                            System.out.println(splitData);
                             String userID = splitData[4];
                             if (userID.trim().equals(String.valueOf(user.getID()))) {
                                 if (splitData[0].trim().equals(bookTitle.getText())) {
