@@ -22,20 +22,10 @@ public class AuthorBooks extends JFrame {
         frame.setSize(500, 600);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
         JTable table = new JTable();
-
-        String readLine = null;
-
         BooksListTableModel tableModel = new BooksListTableModel();
-        File file = new File("src/main/resources/BooksLibrary");
-
-        FileReader reader = new FileReader(file);
-        BufferedReader bufReader = new BufferedReader(reader);
-
         tableModel.setList(booksList);
         table.setModel(tableModel);
-
         Color pink=new Color(255, 230, 235, 255);
         Color pink_d=new Color(255, 182, 199, 211); // 255,182,193
 

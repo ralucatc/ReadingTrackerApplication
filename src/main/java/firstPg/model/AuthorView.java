@@ -125,6 +125,8 @@ public class AuthorView extends JFrame {
                             booksList.add(book);
                         }
                     }
+                    reader.close();
+                    bufReader.close();
                     new AuthorBooks(booksList);
                 } catch (Exception e){
                     e.printStackTrace();
@@ -146,7 +148,7 @@ public class AuthorView extends JFrame {
                     view.setVisible(true);
                 }else {
                     dispose();
-                    ReaderView view = new ReaderView(user);
+                    AuthorView view = new AuthorView(user);
                     view.setVisible(true);
                 }
             }
