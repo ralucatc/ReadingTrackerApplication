@@ -134,7 +134,7 @@ public class AdminView extends JFrame {
                     view.setVisible(true);
                 }else {
                     dispose();
-                    ReaderView view = new ReaderView(user);
+                    AdminView view = new AdminView();
                     view.setVisible(true);
                 }
             }
