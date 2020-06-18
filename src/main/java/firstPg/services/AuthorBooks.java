@@ -2,10 +2,16 @@ package firstPg.services;
 
 import firstPg.model.Books;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 public class AuthorBooks extends JFrame {
     private JTextField txtAddBook;
@@ -35,7 +41,31 @@ public class AuthorBooks extends JFrame {
         JScrollPane scroll = new JScrollPane(table);
         scroll.getViewport().setBackground(pink_d);
         frame.add(scroll);
+
+        table.setCellSelectionEnabled(true);
+        ListSelectionModel cellSelectionModel = table.getSelectionModel();
+        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                String selectedData = null;
+
+                int[] selectedRow = table.getSelectedRows();
+                int[] selectedColumns = table.getSelectedColumns();
+
+                for (int i = 0; i < selectedRow.length; i++) {
+                    for (int j = 0; j < selectedColumns.length; j++) {
+                        selectedData = (String) table.getValueAt(selectedRow[i], selectedColumns[j]);
+                    }
+                }
+                int a = JOptionPane.showConfirmDialog(null, "Do you want to see the reviews?", "Select an Option...",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (a == 0) {
+                    System.out.println(selectedData);
+                    AuthorReviews reviews = new AuthorReviews(selectedData);
+                }
+
+            }
+        });
     }
 }
-
-
