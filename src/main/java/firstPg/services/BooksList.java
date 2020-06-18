@@ -112,17 +112,16 @@ public class BooksList extends JFrame {
 
     public BooksList(User user) throws FileNotFoundException {
 
-        this.user = user ;
-        JFrame frame = new JFrame();
-        frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setTitle("All the books added in the application");
-        frame.setResizable(false);
-        frame.setSize(500, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        this.user = user;
+        setLayout(new BorderLayout());
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setTitle("All the books added in the application");
+        setResizable(false);
+        setSize(500, 600);
+        setLocationRelativeTo(null);
+        setVisible(true);
 
-        frame.addWindowListener(new WindowAdapter() {
+        this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 ReaderView view = new ReaderView(user);
@@ -131,18 +130,27 @@ public class BooksList extends JFrame {
             }
         });
 
+        Container contentPane = this.getContentPane();
+        contentPane.setLayout(null);
+        Color c = Color.pink;
+        contentPane.setBackground(c);
+        Color cl = Color.lightGray;
+
+        JPanel panel1 = new JPanel();// top panel
+
+        panel1.setBounds(0,0,500, 300);
+        panel1.setBackground(c);
+        contentPane.add(panel1);
+        // content for panel1- the table part
+
         JTable table = new JTable();
-
         String readLine = null;
-
         BooksListTableModel tableModel = new BooksListTableModel();
         File file = new File("src/main/resources/BooksLibrary");
-
         FileReader reader = new FileReader(file);
         BufferedReader bufReader = new BufferedReader(reader);
-
         List<Books> booksList = new ArrayList<>();
-        
+
         try {
             while((readLine = bufReader.readLine()) != null) {
                 String[] splitData = readLine.split(",");
@@ -159,48 +167,56 @@ public class BooksList extends JFrame {
         table.setModel(tableModel);
 
         Color pink=new Color(255, 230, 235, 255);
-        Color pink_d=new Color(255, 182, 199, 211); // 255,182,193
-
         table.setBackground(pink);
-        table.getTableHeader().setBackground(pink_d);
-
+        table.getTableHeader().setBackground(c);
         JScrollPane scroll = new JScrollPane(table);
-        scroll.getViewport().setBackground(pink_d);
-        frame.add(scroll);
+        scroll.getViewport().setBackground(pink);
+        //JScrollBar bar = new JScrollBar();
+        //scroll.setHorizontalScrollBar(bar);
+        panel1.add(scroll);
 
-        // TO DO - add anew panel or smth, the information is not visible
+        //the content for buttom part - the add button and other stuff part
 
-        JLabel lblWriteBook = new JLabel("Write the name of the book you want to add in your personal library");
-        lblWriteBook.setBounds(10, 415, 500, 25);
-        scroll.add(lblWriteBook);
+        JLabel lblWriteBook = new JLabel("Write the Book Title");
+        lblWriteBook.setBounds(30, 360, 200, 25);
+        lblWriteBook.setForeground(Color.BLACK);
+        lblWriteBook.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblWriteBook.setBackground(cl);
+        contentPane.add(lblWriteBook);
 
-       txtAddBook = new JTextField();
-       txtAddBook.setBounds(10, 450, 220, 25);
-       txtAddBook.setBackground(Color.white);
-       scroll.add(txtAddBook);
+        txtAddBook = new JTextField();
+        txtAddBook.setBounds(20, 390, 200, 25);
+        txtAddBook.setBackground(Color.white);
+        contentPane.add(txtAddBook);
+
+        JLabel lblRoleLib = new JLabel("Choose Personal Library:");
+        lblRoleLib.setBackground(Color.BLACK);
+        lblRoleLib.setForeground(Color.BLACK);
+        lblRoleLib.setFont(new Font("Roboto", Font.PLAIN, 15));
+        lblRoleLib.setBounds(280, 360, 200, 25);
+        contentPane.add(lblRoleLib);
 
         String[] library = { "Want to read Library", "Currently reading Library"};
         cmbLibrary = new JComboBox<>(library);
-        cmbLibrary.setBounds(10, 500, 220, 25);
-        cmbLibrary.setBackground(Color.white);
-        scroll.add(cmbLibrary);
+        cmbLibrary.setBounds(270, 390, 200, 25);
+
+        contentPane.add(cmbLibrary);
 
 
         btnAddBook  = new JButton("Add Book");
-
         btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (Objects.equals("Want to read Library", String.valueOf(cmbLibrary.getSelectedItem()))) {
-                        if (checkExistanceOfBooks(txtAddBook.getText())) {
-                                try {
-                                    addBooksInTxtFileWantLibrary(txtAddBook.getText());
-                                } catch (FileNotFoundException fileNotFoundException) {
-                                    fileNotFoundException.printStackTrace();
-                                }
-                                JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
-                            }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
+                    if (checkExistanceOfBooks(txtAddBook.getText())) {
+                        try {
+                            addBooksInTxtFileWantLibrary(txtAddBook.getText());
+                        } catch (FileNotFoundException fileNotFoundException) {
+                            fileNotFoundException.printStackTrace();
+                        }
+                        JOptionPane.showMessageDialog(null, "Book added", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                    }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
 
-                    } else {
+                } else {
                     if (checkExistanceOfBooks(txtAddBook.getText())) {
                         try {
                             addBooksInTxtFileCurrentlyLibrary( txtAddBook.getText());
@@ -213,10 +229,9 @@ public class BooksList extends JFrame {
             }
 
         });
-        btnAddBook.setBounds(270, 475, 170, 25);
+        btnAddBook.setBounds(170,450, 160, 25);
         btnAddBook.setBackground(Color.white);
-        scroll.add(btnAddBook);
-
+        contentPane.add(btnAddBook);
     }
 }
 
