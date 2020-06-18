@@ -62,7 +62,11 @@ public class AuthorBooks extends JFrame {
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (a == 0) {
                     System.out.println(selectedData);
-                    AuthorReviews reviews = new AuthorReviews(selectedData);
+                    try {
+                        AuthorReviews reviews = new AuthorReviews(selectedData);
+                    } catch (FileNotFoundException ex) {
+                        ex.printStackTrace();
+                    }
                 }
 
             }

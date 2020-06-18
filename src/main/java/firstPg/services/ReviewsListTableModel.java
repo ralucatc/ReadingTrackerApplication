@@ -1,19 +1,14 @@
 package firstPg.services;
-
-import firstPg.model.Books;
-
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewsListTableModel extends AbstractTableModel {
 
-    private List<Books> list = new ArrayList<Books>();
+    private List<String> list = new ArrayList<String>();
     private String[] columnNames = {"Reviews"};
 
-    public void setList(List<Books> list) {
+    public void setList(List<String> list) {
         this.list = list;
         fireTableDataChanged();
     }
@@ -23,11 +18,6 @@ public class ReviewsListTableModel extends AbstractTableModel {
         return columnNames[column];
     }
 
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
-    }
-
     public int getRowCount() {
         return list.size();
     }
@@ -35,5 +25,16 @@ public class ReviewsListTableModel extends AbstractTableModel {
     public int getColumnCount() {
         return columnNames.length;
     }
+
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        switch (columnIndex) {
+            case 0:
+                return list.get(rowIndex);
+            default:
+                return null;
+        }
+    }
 }
+
+
 
