@@ -9,7 +9,7 @@ public class Books extends Object {
     private String title;
     private String publicationYear;
     private String description;
-    private String progress;
+    private int progress;
     private ArrayList<String> reviews;
 
     public JButton getProg() {
@@ -22,9 +22,9 @@ public class Books extends Object {
 
     private JButton Prog;
 
-    public String getProgress() { return progress; }
+    public int getProgress() { return progress; }
 
-    public void setProgress(String progress) { this.progress = progress; }
+    public void setProgress(int progress) { this.progress = progress; }
 
     public String getAuthor() {
         return author;

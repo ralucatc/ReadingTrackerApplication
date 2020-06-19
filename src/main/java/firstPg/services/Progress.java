@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 
 public class Progress extends JFrame {
 
-    JProgressBar bar;
-    JButton button;
+    private JProgressBar bar;
+    private JButton button;
+    private JButton buttonUpdate;
 
     public Progress (int valueOfPorgress){
 
         setSize(250,200);
         setLayout(new FlowLayout());
-        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Progress Page");
         setResizable(false);
@@ -29,10 +29,10 @@ public class Progress extends JFrame {
         bar.setStringPainted(true);
         bar.setMaximum(100);
         bar.setValue(valueOfPorgress);
-        bar.setBounds(20, 90 , 200, 25);
+        bar.setBounds(20, 70 , 200, 25);
 
         button = new JButton("Increase");
-        button.setBounds(70, 50, 100, 25);
+        button.setBounds(70, 30, 100, 25);
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -51,6 +51,11 @@ public class Progress extends JFrame {
 
         contentPane.add(button);
         contentPane.add(bar);
+
+        buttonUpdate = new JButton("Update Progress");
+        buttonUpdate.setBounds(50, 110, 150, 25);
+
+        contentPane.add(buttonUpdate);
 
         setVisible(true);
     }

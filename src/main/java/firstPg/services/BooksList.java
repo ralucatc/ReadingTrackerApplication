@@ -174,6 +174,7 @@ public class BooksList extends JFrame {
         table.getTableHeader().setBackground(c);
         JScrollPane scroll = new JScrollPane(table);
         scroll.getViewport().setBackground(pink);
+        // TODO scroll bar
         //JScrollBar bar = new JScrollBar();
         //scroll.setHorizontalScrollBar(bar);
         panel1.add(scroll);
