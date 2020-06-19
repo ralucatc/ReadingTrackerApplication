@@ -1,6 +1,7 @@
 package firstPg.services;
 
 import firstPg.exceptions.BookDoesNotExistException;
+import firstPg.model.Books;
 import firstPg.model.ReaderView;
 import firstPg.model.User;
 
@@ -11,12 +12,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressTracking extends JFrame {
 
     private User user;
     private JTextField bookTitle;
     private JButton seeButton;
+    private int ok;
+    private int prog;
 
     public boolean checkExistanceOfABook (String title)
     {
@@ -77,8 +82,37 @@ public class ProgressTracking extends JFrame {
         seeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (checkExistanceOfABook(bookTitle.getText())) {
-                    new Progress(0);
-                    }else { JOptionPane.showMessageDialog(null, "This book is not in your library", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
+                    ok=0;
+                    String readLine = null;
+                    File file = new File("src/main/resources/ProgressTrackingTxt");
+                    FileReader reader = null;
+                    try {
+                                reader = new FileReader(file);
+                    } catch (FileNotFoundException fileNotFoundException) {
+                                fileNotFoundException.printStackTrace();
+                    }
+                    BufferedReader bufReader = new BufferedReader(reader);
+                    try {
+                        while((readLine = bufReader.readLine()) != null) {
+                            String[] splitData = readLine.split(",");
+                            String title = splitData[1];
+                            int id=Integer.parseInt(splitData[2]);
+                            if (title.equals(bookTitle.getText()) && user.getID()==id) {
+                                String progress = splitData[0];
+                                prog = Integer.parseInt(progress);
+                                if (prog>0)
+                                    ok=1;
+                            }
+                        }
+                    } catch(IOException ex) {}
+                    if(ok==0)
+                        new Progress(0, user, bookTitle.getText());
+                    else
+                        new Progress(prog, user, bookTitle.getText());
+                }else {
+                    JOptionPane.showMessageDialog(null, "This book is not in your library", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                }
 
             }
         });

@@ -139,7 +139,6 @@ public class ReaderView extends JFrame {
         btnProgress.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
                 ProgressTracking pr= new ProgressTracking(user);
                 pr.setVisible(true);
                 dispose();
