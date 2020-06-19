@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class BooksList extends JFrame {
 
@@ -110,6 +112,7 @@ public class BooksList extends JFrame {
         }
     }
 
+
     public BooksList(User user) throws FileNotFoundException {
 
         this.user = user;
@@ -174,6 +177,34 @@ public class BooksList extends JFrame {
         //JScrollBar bar = new JScrollBar();
         //scroll.setHorizontalScrollBar(bar);
         panel1.add(scroll);
+        //selection specific row part
+
+        table.setCellSelectionEnabled(true);
+        ListSelectionModel cellSelectionModel = table.getSelectionModel();
+        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        cellSelectionModel.addListSelectionListener(e -> {
+            String selectedData = null;
+
+            int[] selectedRow = table.getSelectedRows();
+            int[] selectedColumns = table.getSelectedColumns();
+
+            for (int i = 0; i < selectedRow.length; i++) {
+                for (int j = 0; j < selectedColumns.length; j++) {
+                    selectedData = (String) table.getValueAt(selectedRow[i], selectedColumns[j]);
+               }
+            }
+
+            int a = JOptionPane.showConfirmDialog(null, "Do you want to leave a review?", "Select an Option...",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (a == 0) {
+                System.out.println(selectedData);
+                new ReaderReviews(selectedData);
+              // setVisible(true);
+               // dispose();
+            }
+        });
+
 
         //the content for buttom part - the add button and other stuff part
 
