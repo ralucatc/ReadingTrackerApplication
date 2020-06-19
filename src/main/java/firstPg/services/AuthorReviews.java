@@ -27,7 +27,6 @@ public class AuthorReviews extends JFrame {
         setResizable(false);
         setSize(500, 500);
         setLocationRelativeTo(null);
-        setVisible(true);
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(null);
@@ -35,7 +34,7 @@ public class AuthorReviews extends JFrame {
         contentPane.setBackground(c);
         Color cl = Color.lightGray;
 
-        JPanel panel1 = new JPanel();// top panel
+        JPanel panel1 = new JPanel();
 
         panel1.setBounds(0,15,500, 600);
         panel1.setBackground(c);
@@ -57,11 +56,19 @@ public class AuthorReviews extends JFrame {
                     reviewsList.add(splitData[1]);
                 }
             }
-        } catch(IOException ex) {}
+        } catch(IOException ex) {
+        }
 
-        tableModel.setList(reviewsList);
-        table.setModel(tableModel);
+        if(reviewsList.isEmpty()){
+            JOptionPane.showMessageDialog(null,
+                    "There aren't any reviews for this book yet.");
+            setVisible(false);
+        }else {
 
+            tableModel.setList(reviewsList);
+            table.setModel(tableModel);
+            setVisible(true);
+        }
         Color pink=new Color(255, 230, 235, 255);
         table.setBackground(pink);
         table.getTableHeader().setBackground(c);
