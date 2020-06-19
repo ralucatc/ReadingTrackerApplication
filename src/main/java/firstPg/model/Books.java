@@ -1,6 +1,7 @@
 package firstPg.model;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Books extends Object {
 
@@ -9,6 +10,7 @@ public class Books extends Object {
     private String publicationYear;
     private String description;
     private String progress;
+    private ArrayList<String> reviews;
 
     public JButton getProg() {
         return Prog;
@@ -52,4 +54,11 @@ public class Books extends Object {
 
     public void setTitle(String title) { this.title = title; }
 
+    public ArrayList<String> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(ArrayList<String> reviews) {
+        this.reviews = reviews;
+    }
 }
