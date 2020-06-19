@@ -1,23 +1,14 @@
 package firstPg.services;
-
 import firstPg.model.Books;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.logging.Logger;
-
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
+
 
 public class AuthorBooks extends JFrame {
-    private JTextField txtAddBook;
-    private JButton btnAddBook;
-    private JComboBox<String> cmbLibrary;
-    private String Title;
 
     public AuthorBooks(ArrayList<Books> booksList) throws FileNotFoundException {
         JFrame frame = new JFrame();
@@ -53,19 +44,16 @@ public class AuthorBooks extends JFrame {
                 int[] selectedRow = table.getSelectedRows();
                 int[] selectedColumns = table.getSelectedColumns();
 
-                for (int i = 0; i < selectedRow.length; i++) {
-                    for (int j = 0; j < selectedColumns.length; j++) {
-                        selectedData = (String) table.getValueAt(selectedRow[i], selectedColumns[j]);
-                    }
-                }
-                int a = JOptionPane.showConfirmDialog(null, "Do you want to see the reviews?", "Select an Option...",
-                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                if (a == 0) {
-                    System.out.println(selectedData);
-                    try {
-                        AuthorReviews reviews = new AuthorReviews(selectedData);
-                    } catch (FileNotFoundException ex) {
-                        ex.printStackTrace();
+                if (selectedColumns[0] == 0) {
+                    selectedData = (String) table.getValueAt(selectedRow[0], selectedColumns[0]);
+                    int a = JOptionPane.showConfirmDialog(null, "Do you want to see the reviews?", "Select an Option...",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (a == 0) {
+                        try {
+                            AuthorReviews reviews = new AuthorReviews(selectedData);
+                        } catch (FileNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
                     }
                 }
 
