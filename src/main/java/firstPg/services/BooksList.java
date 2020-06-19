@@ -174,6 +174,7 @@ public class BooksList extends JFrame {
         table.getTableHeader().setBackground(c);
         JScrollPane scroll = new JScrollPane(table);
         scroll.getViewport().setBackground(pink);
+        // TODO scroll bar
         //JScrollBar bar = new JScrollBar();
         //scroll.setHorizontalScrollBar(bar);
         panel1.add(scroll);
@@ -189,23 +190,17 @@ public class BooksList extends JFrame {
             int[] selectedRow = table.getSelectedRows();
             int[] selectedColumns = table.getSelectedColumns();
 
-            for (int i = 0; i < selectedRow.length; i++) {
-                for (int j = 0; j < selectedColumns.length; j++) {
-                    selectedData = (String) table.getValueAt(selectedRow[i], selectedColumns[j]);
-               }
-            }
-
-            int a = JOptionPane.showConfirmDialog(null, "Do you want to leave a review?", "Select an Option...",
-                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (a == 0) {
-                System.out.println(selectedData);
-                new ReaderReviews(selectedData);
-              // setVisible(true);
-               // dispose();
+            if (selectedColumns[0] == 0) {
+                for (int i = 0; i < selectedRow.length; i++) {
+                        selectedData = (String) table.getValueAt(selectedRow[i], selectedColumns[0]);
+                   }
+                int a = JOptionPane.showConfirmDialog(null, "Do you want to leave a review?", "Select an Option...",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (a == 0) {
+                    new ReaderReviews(selectedData);
+                }
             }
         });
-
-
         //the content for buttom part - the add button and other stuff part
 
         JLabel lblWriteBook = new JLabel("Write the Book Title");
