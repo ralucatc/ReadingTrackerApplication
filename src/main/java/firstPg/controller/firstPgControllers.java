@@ -8,6 +8,7 @@ import firstPg.services.UserService;
 import firstPg.exceptions.UsernameAlreadyExistsException;
 
 public class firstPgControllers {
+
     private firstPgView view;
 
     public firstPgControllers(firstPgView view) {

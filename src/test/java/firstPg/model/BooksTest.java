@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BooksTest {
 
+    Books b;
     @BeforeEach
     void setUp() {
     }

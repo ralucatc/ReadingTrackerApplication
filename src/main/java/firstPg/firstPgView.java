@@ -25,6 +25,7 @@ public class firstPgView extends JFrame{
     private firstPgControllers controllerRegistration;
 
     public firstPgView() {
+
         controller = new firstPgControllers(this);
         controllerRegistration = new firstPgControllers(this);
 
