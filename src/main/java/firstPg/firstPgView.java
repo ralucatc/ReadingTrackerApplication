@@ -82,16 +82,6 @@ public class firstPgView extends JFrame{
         cmbRole.setBounds(380, 210, 150, 25);
         contentPane.add(cmbRole);
 
-       /* JButton ForgotCredentials  = new JButton("Forgot Credentials?");
-        ForgotCredentials.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                changePassword a = new changePassword();
-            }
-        });
-        ForgotCredentials .setBounds(380, 240, 150, 25);
-        contentPane.add(ForgotCredentials);
-        */
-
         btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener(){
             @Override
@@ -111,7 +101,6 @@ public class firstPgView extends JFrame{
                             readerLog.setVisible(true);
                             dispose();
                         } else
-                        //if (UserService.checkIfAuthor((String) cmbRole.getSelectedItem()))// author condition
                         {
                             AuthorView authorLog = new AuthorView(user);
                             authorLog.setVisible(true);
