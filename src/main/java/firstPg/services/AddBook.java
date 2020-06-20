@@ -18,6 +18,18 @@ public class AddBook extends JFrame {
     static String summery;
     private User user;
 
+    public void addBook (String Data){
+        try {
+            BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/BooksLibrary"), true));
+            reader1.write(Data);
+            reader1.newLine();
+            reader1.close();
+            JOptionPane.showMessageDialog(null, "Book added!", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+            dispose();
+        } catch (IOException E) {
+            System.out.println("Error is " + E);
+        }
+    }
 
     public AddBook(User user) {
         this.user = user;
@@ -104,17 +116,8 @@ public class AddBook extends JFrame {
 
                 summery = ( Title + ",") + ( Author + ",") + ( Year + ",") + ( Summary + ",") + ( user.getID()) ;
 
-                String Data = AddBook.summery;
-                try {
-                    BufferedWriter reader1 = new BufferedWriter(new FileWriter(new File("src/main/resources/BooksLibrary"), true));
-                    reader1.write(Data);
-                    reader1.newLine();
-                    reader1.close();
-                    JOptionPane.showMessageDialog(null, "Book added!", "Adding book", JOptionPane.INFORMATION_MESSAGE);
-                    dispose();
-                } catch (IOException E) {
-                    System.out.println("Error is " + E);
-                }
+                String myData = AddBook.summery;
+                addBook(myData);
             }
         });
 
