@@ -3,7 +3,7 @@ package firstPg.model;
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Books extends Object {
+public class Books  {
 
     private String author;
     private String title;
