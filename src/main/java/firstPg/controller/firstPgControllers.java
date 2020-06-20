@@ -9,7 +9,7 @@ import firstPg.exceptions.UsernameAlreadyExistsException;
 
 public class firstPgControllers {
 
-    private firstPgView view;
+   private firstPgView view;
 
     public firstPgControllers(firstPgView view) {
         this.view = view;
@@ -31,6 +31,4 @@ public class firstPgControllers {
         }
 
     }
-
-
 }
