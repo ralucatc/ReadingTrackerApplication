@@ -1,21 +1,22 @@
 package firstPg.controller;
 
+import firstPg.controller.firstPgControllers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class firstPgControllersTest {
 
-    firstPgControllers test;
 
     @BeforeEach
     void setUp() {
+        firstPgControllers test;
 
     }
 
     @AfterEach
     void tearDown() {
-        test = null;
+
     }
 
     @Test
