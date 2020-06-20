@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReaderReviewsTest {
 
-
-
     @BeforeEach
     void setUp() {
     }
