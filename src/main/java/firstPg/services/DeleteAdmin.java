@@ -66,7 +66,6 @@ public class DeleteAdmin extends JFrame {
                                 found = true;
                                 continue;
                             }
-                            System.out.println(bookTitle.getText());
                             pw.println(readLine);
                             pw.flush();
                         }
