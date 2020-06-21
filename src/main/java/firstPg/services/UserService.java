@@ -79,7 +79,6 @@ public class UserService {
         try {
             while ((readLine = bufReader.readLine()) != null) {
                 String[] splitData = readLine.split(",");
-                // System.out.println(splitData[0]);
                 String t = splitData[0];
                 if (title.equals(t)) {
                     ok = 1;
@@ -90,27 +89,6 @@ public class UserService {
             }
         }catch(IOException ex) {}
 
-    }
-
-    public static void SearchBook (String title) throws BookDoesNotExistException, FileNotFoundException {
-        int ok = 0;
-        File file = new File("src/main/resources/CurrentlyReadingLibrary");
-        FileReader reader = new FileReader(file);
-        BufferedReader bufReader = new BufferedReader(reader);
-        String readLine = null;
-        try {
-            while ((readLine = bufReader.readLine()) != null) {
-                String[] splitData = readLine.split(",");
-                String t = splitData[0];
-                if (title.equals(t)) {
-                    ok = 1;
-                }
-            }
-            if (ok == 0){
-
-                throw new BookDoesNotExistException(title);
-            }
-        }catch(IOException ex) {}
     }
 
     private static void persistUsers() {
@@ -153,13 +131,6 @@ public class UserService {
 
     public static boolean checkIfReader (String role){
         if(role.equals("Reader")){
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean checkIfAuthor (String role){
-        if(role.equals("Author")){
             return true;
         }
         return false;

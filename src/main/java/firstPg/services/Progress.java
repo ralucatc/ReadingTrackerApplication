@@ -16,10 +16,6 @@ public class Progress extends JFrame {
     private JButton button;
     private JButton buttonUpdate;
     static String summery;
-    private String[] splitData;
-
-    // citesc din fisier
-    //int ProgressTxtReading
 
     //scriu in fisier
     public void addDetailsInTxtProgressFile (String title, int progress, int id) throws FileNotFoundException {
@@ -35,7 +31,6 @@ public class Progress extends JFrame {
             System.out.println("Error is " + E);
         }
     }
-
 
     public Progress (int valueOfProgress, User user, String title){
 
@@ -86,7 +81,6 @@ public class Progress extends JFrame {
                 if (a == 0) {
                     try {
                         addDetailsInTxtProgressFile(  title ,bar.getValue(),user.getID());
-                        System.out.println(title);
                         JOptionPane.showMessageDialog(null, "You have updated your progress!", "Thank you!",JOptionPane.INFORMATION_MESSAGE);
                         dispose();
                     } catch (FileNotFoundException fileNotFoundException) {
@@ -96,9 +90,7 @@ public class Progress extends JFrame {
                 }
             }
         });
-
         contentPane.add(buttonUpdate);
-
         setVisible(true);
     }
 }

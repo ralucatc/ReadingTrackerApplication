@@ -20,7 +20,6 @@ public class AuthorView extends JFrame {
     private JButton btnDelete;
     private JButton btnList;
     private JButton  btnLogout;
-    private JButton btnReview;
     private User user;
 
     public AuthorView(User user)

@@ -1,7 +1,6 @@
 package firstPg.services;
 
 import firstPg.exceptions.BookDoesNotExistException;
-import firstPg.model.Books;
 import firstPg.model.ReaderView;
 import firstPg.model.User;
 
@@ -12,8 +11,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProgressTracking extends JFrame {
 
@@ -23,10 +20,32 @@ public class ProgressTracking extends JFrame {
     private int ok;
     private int prog;
 
-    public boolean checkExistanceOfABook (String title)
+    public static void SearchBookCurrentLib (String title, int id) throws BookDoesNotExistException, FileNotFoundException {
+        int ok = 0;
+        File file = new File("src/main/resources/CurrentlyReadingLibrary");
+        FileReader reader = new FileReader(file);
+        BufferedReader bufReader = new BufferedReader(reader);
+        String readLine = null;
+        try {
+            while ((readLine = bufReader.readLine()) != null) {
+                String[] splitData = readLine.split(",");
+                String t = splitData[0];
+                String userID = splitData[4];
+                if (title.equals(t) && userID.trim().equals(String.valueOf(id))) {
+                    ok = 1;
+                }
+            }
+            if (ok == 0){
+                throw new BookDoesNotExistException(title);
+            }
+        }catch(IOException ex) {}
+    }
+
+
+    public boolean checkExistanceOfABook (String title, int id)
     {
         try {
-            UserService.SearchBook(title);
+            SearchBookCurrentLib(title, id);
             return true;
         } catch (BookDoesNotExistException | FileNotFoundException e) {
             return false;
@@ -81,7 +100,7 @@ public class ProgressTracking extends JFrame {
 
         seeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (checkExistanceOfABook(bookTitle.getText())) {
+                if (checkExistanceOfABook(bookTitle.getText(), user.getID())) {
                     ok=0;
                     String readLine = null;
                     File file = new File("src/main/resources/ProgressTrackingTxt");
@@ -111,9 +130,8 @@ public class ProgressTracking extends JFrame {
                         new Progress(prog, user, bookTitle.getText());
                 }else {
                     JOptionPane.showMessageDialog(null, "This book is not in your library", "Adding book", JOptionPane.INFORMATION_MESSAGE);
-                    dispose();
+                    //dispose();
                 }
-
             }
         });
     }

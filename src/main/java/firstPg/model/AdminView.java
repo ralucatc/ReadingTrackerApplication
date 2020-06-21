@@ -70,7 +70,6 @@ public class AdminView extends JFrame {
             }
         });
 
-
         JLabel lblDelete = new JLabel("Delete a book:");
         lblDelete.setBackground(Color.BLACK);
         lblDelete.setForeground(Color.BLACK);
@@ -139,7 +138,6 @@ public class AdminView extends JFrame {
                 }
             }
         });
-
 
         btnDeleteBook.addActionListener(new ActionListener() {
             @Override
