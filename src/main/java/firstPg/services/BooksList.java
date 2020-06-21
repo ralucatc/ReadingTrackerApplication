@@ -14,10 +14,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 public class BooksList extends JFrame {
 
@@ -38,7 +35,6 @@ public class BooksList extends JFrame {
             return false;
         }
     }
-
 
     public void addBooksInTxtFileWantLibrary(String title) throws FileNotFoundException {
         Title = ("");
@@ -96,7 +92,9 @@ public class BooksList extends JFrame {
                     Summary=splitData[3];
                 }
             }
-        } catch(IOException ex) {}
+        } catch(IOException ex) {
+            System.out.println("Error is " + ex);
+        }
 
         summery = ( Title + ",") + ( Author + ",") + ( Year + ",") + ( Summary + ",") + user.getID();
 
@@ -174,11 +172,7 @@ public class BooksList extends JFrame {
         table.getTableHeader().setBackground(c);
         JScrollPane scroll = new JScrollPane(table);
         scroll.getViewport().setBackground(pink);
-        // TODO scroll bar
-        //JScrollBar bar = new JScrollBar();
-        //scroll.setHorizontalScrollBar(bar);
         panel1.add(scroll);
-        //selection specific row part
 
         table.setCellSelectionEnabled(true);
         ListSelectionModel cellSelectionModel = table.getSelectionModel();
@@ -201,7 +195,6 @@ public class BooksList extends JFrame {
                 }
             }
         });
-        //the content for buttom part - the add button and other stuff part
 
         JLabel lblWriteBook = new JLabel("Write the Book Title");
         lblWriteBook.setBounds(30, 360, 200, 25);
@@ -228,7 +221,6 @@ public class BooksList extends JFrame {
 
         contentPane.add(cmbLibrary);
 
-
         btnAddBook  = new JButton("Add Book");
         btnAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -253,7 +245,6 @@ public class BooksList extends JFrame {
                     }else { JOptionPane.showMessageDialog(null, "Book doesn't exist in the application", "Adding book", JOptionPane.INFORMATION_MESSAGE); }
                 }
             }
-
         });
         btnAddBook.setBounds(170,450, 160, 25);
         btnAddBook.setBackground(Color.white);

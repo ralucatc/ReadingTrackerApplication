@@ -1,17 +1,10 @@
 package firstPg.services;
 
-import firstPg.model.Books;
-import firstPg.model.User;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DeleteAdmin extends JFrame {
 
@@ -74,7 +67,6 @@ public class DeleteAdmin extends JFrame {
                                 continue;
                             }
                             System.out.println(bookTitle.getText());
-                            //found = false;
                             pw.println(readLine);
                             pw.flush();
                         }

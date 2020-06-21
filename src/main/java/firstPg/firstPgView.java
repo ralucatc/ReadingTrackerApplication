@@ -19,10 +19,8 @@ public class firstPgView extends JFrame{
     private JTextField txtUsername;
     private JPasswordField txtPassword;
     private firstPgControllers controller;
-
-
-    private JComboBox<String> cmbRole;
     private firstPgControllers controllerRegistration;
+    private JComboBox<String> cmbRole;
 
     public firstPgView() {
 
@@ -136,7 +134,5 @@ public class firstPgView extends JFrame{
         UserService.loadUsersFromFile();
         firstPgView view = new firstPgView();
         view.setVisible(true);
-
     }
-
 }
