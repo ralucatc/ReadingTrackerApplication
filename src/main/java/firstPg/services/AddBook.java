@@ -24,8 +24,8 @@ public class AddBook extends JFrame {
             reader1.write(Data);
             reader1.newLine();
             reader1.close();
-            //JOptionPane.showMessageDialog(null, "Book added!", "Adding book", JOptionPane.INFORMATION_MESSAGE);
-            //dispose();
+            JOptionPane.showMessageDialog(null, "Book added!", "Adding book", JOptionPane.INFORMATION_MESSAGE);
+            dispose();
         } catch (IOException E) {
             System.out.println("Error is " + E);
         }

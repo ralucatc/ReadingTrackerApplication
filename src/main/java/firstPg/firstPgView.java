@@ -1,12 +1,10 @@
 package firstPg;
-
 import firstPg.controller.firstPgControllers;
 import firstPg.model.AdminView;
 import firstPg.model.AuthorView;
 import firstPg.model.ReaderView;
 import firstPg.model.User;
 import firstPg.services.UserService;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
