@@ -7,7 +7,6 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 public class AuthorBooks extends JFrame {
 
     public AuthorBooks(ArrayList<Books> booksList) throws FileNotFoundException {
@@ -56,7 +55,6 @@ public class AuthorBooks extends JFrame {
                         }
                     }
                 }
-
             }
         });
     }
