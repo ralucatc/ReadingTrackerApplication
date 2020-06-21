@@ -24,7 +24,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes "Main-Class": "registration.RegistrationView"
+        attributes 'Main-Class': 'firstPg.firstPgView'
     }
 
 }
