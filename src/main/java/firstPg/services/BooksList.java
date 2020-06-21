@@ -1,10 +1,8 @@
 package firstPg.services;
-
 import firstPg.exceptions.BookDoesNotExistException;
 import firstPg.model.Books;
 import firstPg.model.ReaderView;
 import firstPg.model.User;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,10 +12,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
 
 public class BooksList extends JFrame {
 
